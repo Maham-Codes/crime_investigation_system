@@ -1,4 +1,15 @@
 package com.crimeinvestigation.system.model;
 
 public class Investigator {
+    protected String rank;
+    protected int NoOfCurrentCases;
+    protected int solvedCases;
+
+    Investigator(String name,String FatherName,String contactNumber,String DOB, String Occupation,String CNIC,int PersonID,String Gender,String rank,int NoOfCurrentCases,int solvedCases)
+    {
+this.rank=rank;
+this.NoOfCurrentCases=NoOfCurrentCases;
+this.solvedCases=solvedCases;
+    }
+
 }
