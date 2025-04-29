@@ -26,11 +26,6 @@ public class Criminal extends Person {
      public void setNationality(String Nationality){ this.Nationality=Nationality; }
      public String getNationality(){ return Nationality; }
 
-     public void displayDetails(){
-          System.out.println("CrimeType: "+CrimeType);
-          System.out.println("CurrentStatus: "+CurrentStatus);
-          System.out.println("Reputation: "+Reputation);
-          System.out.println("Nationality: "+Nationality);
-     }
+
 
 }
