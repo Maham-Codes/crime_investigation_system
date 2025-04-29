@@ -7,6 +7,7 @@ public class Criminal extends Person {
      protected String CurrentStatus;
      protected String Reputation;
      protected String Nationality;
+     protected List<Crime> crimes;
 
      Criminal(String name,String FatherName,String contactNumber,String DOB, String Occupation,String CNIC,int PersonID,String Gender,String
               CrimeType,String CurrentStatus,String Reputation,String Nationality) {
@@ -15,7 +16,7 @@ public class Criminal extends Person {
           this.CurrentStatus=CurrentStatus;
           this.Reputation=Reputation;
           this.Nationality=Nationality;
-
+          this.crimes=new ArrayList<>();
      }
      public void setCrimeType(String CrimeType){ this.CrimeType=CrimeType; }
      public String getCrimeType(){ return CrimeType; }
@@ -26,6 +27,12 @@ public class Criminal extends Person {
      public void setNationality(String Nationality){ this.Nationality=Nationality; }
      public String getNationality(){ return Nationality; }
 
+     public void addCrime(Crime crime) {
+          crimes.add(crime);
+     }
 
+     public List<Crime> getCriminalHistory() {
+          return crimes;
+     }
 
 }
