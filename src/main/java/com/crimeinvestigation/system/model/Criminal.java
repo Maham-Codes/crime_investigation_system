@@ -17,6 +17,15 @@ public class Criminal extends Person {
           this.Nationality=Nationality;
 
      }
+     public void setCrimeType(String CrimeType){ this.CrimeType=CrimeType; }
+     public String getCrimeType(){ return CrimeType; }
+     public void setCurrentStatus(String CurrentStatus){ this.CurrentStatus=CurrentStatus; }
+     public String getCurrentStatus(){ return CurrentStatus; }
+     public void setReputation(String Reputation){ this.Reputation=Reputation; }
+     public String getReputation(){ return Reputation; }
+     public void setNationality(String Nationality){ this.Nationality=Nationality; }
+     public String getNationality(){ return Nationality; }
+
 
 
 }
