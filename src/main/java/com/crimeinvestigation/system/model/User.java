@@ -16,7 +16,14 @@ protected UserType UserType;
         super(name,FatherName,contactNumber,DOB,Occupation,CNIC,PersonID,Gender);
         this.Address=Address;
         this.email=email;
-this.UserType=UserType;
+        this.UserType=UserType;
 
     }
+    public void setAddress(String Address){this.Address=Address;}
+    public String getAddress() {return Address;}
+    public void setEmail(String email){this.email=email;}
+    public String getEmail() {return email;}
+    public void setUserType(UserType UserType){this.UserType=UserType;}
+    public UserType getUserType() {return UserType;}
+
 }
