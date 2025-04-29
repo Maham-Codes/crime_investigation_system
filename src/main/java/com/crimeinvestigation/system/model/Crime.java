@@ -15,14 +15,16 @@ public class Crime {
      this.injuryDetail=injuryDetail;
      this.motive=motive;
  }
- public void setcrimeID(int crimeID) { this.crimeID=crimeID; }
- public int getcrimeID() { return crimeID; }
-    public void setCCTVpresence(boolean CCTVpresence) { this.CCTVpresence=CCTVpresence; }
-    public boolean getCCTVpresence() { return CCTVpresence; }
-    public void setweaponUsed(String weaponUsed) { this.weaponUsed=weaponUsed; }
-    public String getweaponUsed() { return weaponUsed;}
-    public void setInjuryDetail(String injuryDetail) {this.injuryDetail = injuryDetail;}
-    public String getInjuryDetail() { return injuryDetail;}
-    public void setMotive(String motive) { this.motive=motive; }
-    public String getMotive() { return motive;}
+
+    public int getcrimeID(){return crimeID;}
+    public boolean getCCTVpresence(){return CCTVpresence;}
+    public String weaponUsed(){return weaponUsed;}
+    public String getInjuryDetail(){return injuryDetail;}
+    public String getMotive() {return motive;}
+    public void setCrimeID(int crimeID){}
+    public void setCCTVpresence(boolean CCTVpresence){}
+    public void setWeaponUsed(String weapponUsed){}
+    public void setInjuryDetail(String injuryDetail){}
+    public void setMotive(String motive) {this.motive=motive;}
+
 }
