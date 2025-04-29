@@ -7,5 +7,11 @@ public Harassment(int CrimeID,boolean CCTVpresence,String weaponUsed,String inju
     super(CrimeID,CCTVpresence,weaponUsed,injuryDetail,motive);
     this.harassmentType=harassmentType;
 }
-public abstract String harassmentDetail();
+
+    public Harassment(String harassmentType) {
+    super();
+    this.harassmentType=harassmentType;
+    }
+
+    public abstract String harassmentDetail();
 }
