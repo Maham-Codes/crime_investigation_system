@@ -55,5 +55,17 @@ public class Feedback {
     public void setFeedbackDate(LocalDate feedbackDate) {
         this.feedbackDate = feedbackDate;
     }
+    public void displayFeedback() {
+        System.out.println("Feedback ID: " + feedbackID);
+        System.out.println("User ID: " + userID);
+        System.out.println("Case ID: " + (caseID == 0 ? "Overall Service" : caseID));
+        System.out.println("Rating: " + rating);
+        System.out.println("Comments: " + comments);
+        System.out.println("Feedback Date: " + feedbackDate);
+    }
+    public void updateFeedback(int newRating, String newComments) {
+        this.rating = newRating;
+        this.comments = newComments;
+    }
 
 }

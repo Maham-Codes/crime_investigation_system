@@ -39,5 +39,15 @@ public class TrackingStatus {
     public void setUpdateDate(LocalDate updateDate) {
         this.updateDate = updateDate;
     }
+    public void displayStatus() {
+        System.out.println("Tracking ID: " + trackingID);
+        System.out.println("Case ID: " + caseID);
+        System.out.println("Status: " + updateSatus);
+        System.out.println("Last Updated: " + updateDate);
+    }
+    public void updateStatus(String newStatus, String comments) {
+        this.updateSatus = newStatus;
+        this.updateDate = LocalDate.now(); // Automatically update the date when status is changed
+    }
 
 }
