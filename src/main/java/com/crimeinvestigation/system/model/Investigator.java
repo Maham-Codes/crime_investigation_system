@@ -13,4 +13,11 @@ this.NoOfCurrentCases=NoOfCurrentCases;
 this.solvedCases=solvedCases;
     }
 
+    public void setRank(String rank){ this.rank=rank;}
+    public String getRank(){ return rank;}
+    public void setNoOfCurrentCases(int NoOfCurrentCases){ this.NoOfCurrentCases=NoOfCurrentCases;}
+    public int getNoOfCurrentCases(){ return NoOfCurrentCases;}
+    public void setSolvedCases(int solvedCases){ this.solvedCases=solvedCases;}
+    public int getSolvedCases(){ return solvedCases;}
+
 }
