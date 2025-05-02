@@ -13,5 +13,4 @@ public Harassment(int CrimeID,boolean CCTVpresence,String weaponUsed,String inju
     this.harassmentType=harassmentType;
     }
 
-    public abstract String harassmentDetail();
 }
