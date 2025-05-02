@@ -8,6 +8,9 @@ public class Crime {
      String motive ;
      String CrimeType;
 
+Crime(){
+
+}
 
  Crime(int crimeID,boolean CCTVpresence,String weaponUsed, String injuryDetail,String motive,String CrimeType) {
      this.crimeID=crimeID;

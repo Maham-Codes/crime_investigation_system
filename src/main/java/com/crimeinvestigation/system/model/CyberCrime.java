@@ -12,8 +12,8 @@ public class CyberCrime extends Crime{
         this.offenderAccountId = offenderAccountId;
     }
 
-    public CyberCrime(int crimeID,boolean CCTVpresence,String weaponUsed, String injuryDetail,String motive,String platform, boolean threatsInvolved, String offenderAccountId) {
-        super(crimeID,CCTVpresence,weaponUsed,injuryDetail,motive);
+    public CyberCrime(int crimeID,boolean CCTVpresence,String weaponUsed, String injuryDetail,String CrimeType,String motive,String platform, boolean threatsInvolved, String offenderAccountId) {
+        super(crimeID,CCTVpresence,weaponUsed,injuryDetail,motive,CrimeType);
         this.platform = platform;
         this.threatsInvolved = threatsInvolved;
         this.offenderAccountId = offenderAccountId;
