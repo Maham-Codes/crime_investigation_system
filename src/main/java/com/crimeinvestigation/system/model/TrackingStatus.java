@@ -47,7 +47,7 @@ public class TrackingStatus {
     }
     public void updateStatus(String newStatus, String comments) {
         this.updateSatus = newStatus;
-        this.updateDate = LocalDate.now(); // Automatically update the date when status is changed
+        this.updateDate = LocalDate.now(); // Automatically update the date when caseStatus is changed
     }
 
 }

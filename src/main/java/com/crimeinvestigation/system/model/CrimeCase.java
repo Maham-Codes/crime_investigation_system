@@ -2,9 +2,6 @@ package com.crimeinvestigation.system.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class CrimeCase {
     protected int caseID;
@@ -12,7 +9,7 @@ public class CrimeCase {
     protected LocalDateTime time;
     protected String location;
     protected String description;
-    protected String status;
+    protected String caseStatus;
     protected int userID;
     protected int evidenceID;
 
@@ -22,7 +19,7 @@ public class CrimeCase {
         this.time = time;
         this.location = location;
         this.description = description;
-        this.status = status;
+        this.caseStatus = status;
         this.userID = userID;
         this.evidenceID = evidenceID;
     }
@@ -68,12 +65,12 @@ public class CrimeCase {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
+    public String getCaseStatus() {
+        return caseStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCaseStatus(String caseStatus) {
+        this.caseStatus = caseStatus;
     }
 
     public int getUserID() {

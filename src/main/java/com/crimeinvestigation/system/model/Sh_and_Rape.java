@@ -45,5 +45,8 @@ public class Sh_and_Rape extends Harassment{
         this.rapeType = rapeType;
     }
 
-
+    @Override
+    public String harassmentDetail(){
+        return "Sexual Harrassment\n----------------\nSexual Harrassment Type:"+sexualHarassmentType+".\nRelation to Harasser:"+relationToHarasser+".\nRape? "+rape+"./nType of Rape: "+rapeType+".";
+    }
 }
