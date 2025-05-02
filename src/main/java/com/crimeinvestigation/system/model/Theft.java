@@ -5,13 +5,13 @@ public class Theft extends Crime{
     private String lossAmount;
 
     public Theft(String stolenItemDescription, String lossAmount) {
-        super();
+        super(0, false, null, null, null);
         this.stolenItemDescription = stolenItemDescription;
         this.lossAmount = lossAmount;
     }
 
     public Theft(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, String CrimeType, String stolenItemDescription, String lossAmount) {
-        super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive, CrimeType);
+        super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive);
         this.stolenItemDescription = stolenItemDescription;
         this.lossAmount = lossAmount;
     }

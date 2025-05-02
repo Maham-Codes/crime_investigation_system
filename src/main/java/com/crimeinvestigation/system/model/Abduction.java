@@ -6,14 +6,14 @@ public class Abduction extends Crime {
     protected String lastSeen;
 
     public Abduction(String relationToVictim, String demandMade, String lastSeen) {
-        super();
+        super(0, false, null, null, null);
         this.relationToVictim = relationToVictim;
         this.demandMade = demandMade;
         this.lastSeen = lastSeen;
     }
 
     public Abduction(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, String CrimeType, String relationToVictim, String demandMade, String lastSeen) {
-        super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive, CrimeType);
+        super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive);
         this.relationToVictim = relationToVictim;
         this.demandMade = demandMade;
         this.lastSeen = lastSeen;

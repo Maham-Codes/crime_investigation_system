@@ -10,7 +10,7 @@ public class Murder extends Crime{
     private String autopsy;
 
     public Murder(LocalDateTime timeOfDeath, String victimName, boolean bodyRecovered, String autopsy) {
-        super();
+        super(0, false, null, null, null);
         this.timeOfDeath = timeOfDeath;
         this.victimName = victimName;
         this.bodyRecovered = bodyRecovered;
@@ -18,7 +18,7 @@ public class Murder extends Crime{
     }
 
     public Murder(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, String CrimeType, LocalDateTime timeOfDeath, String victimName, boolean bodyRecovered, String autopsy) {
-        super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive, CrimeType);
+        super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive);
         this.timeOfDeath = timeOfDeath;
         this.victimName = victimName;
         this.bodyRecovered = bodyRecovered;
