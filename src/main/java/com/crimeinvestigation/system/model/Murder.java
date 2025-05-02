@@ -4,20 +4,20 @@ import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 
 public class Murder extends Crime implements CrimeType{
-    private LocalDateTime timeOfDeath;
-    private String victimName;
-    private boolean bodyRecovered;
-    private String autopsy;
+    protected LocalDateTime timeOfDeath;
+    protected String victimName;
+    protected boolean bodyRecovered;
+    protected String autopsy;
 
-    public Murder(LocalDateTime timeOfDeath, String victimName, boolean bodyRecovered, String autopsy) {
+    public Murder() {
         super(0, false, null, null, null);
-        this.timeOfDeath = timeOfDeath;
-        this.victimName = victimName;
-        this.bodyRecovered = bodyRecovered;
-        this.autopsy = autopsy;
+        this.timeOfDeath = null;
+        this.victimName = null;
+        this.bodyRecovered = false;
+        this.autopsy = null;
     }
 
-    public Murder(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, String CrimeType, LocalDateTime timeOfDeath, String victimName, boolean bodyRecovered, String autopsy) {
+    public Murder(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, LocalDateTime timeOfDeath, String victimName, boolean bodyRecovered, String autopsy) {
         super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive);
         this.timeOfDeath = timeOfDeath;
         this.victimName = victimName;

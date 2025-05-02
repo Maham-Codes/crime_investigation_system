@@ -5,11 +5,11 @@ public class Abduction extends Crime implements CrimeType{
     protected String demandMade;
     protected String lastSeen;
 
-    public Abduction(String relationToVictim, String demandMade, String lastSeen) {
+    public Abduction() {
         super(0, false, null, null, null);
-        this.relationToVictim = relationToVictim;
-        this.demandMade = demandMade;
-        this.lastSeen = lastSeen;
+        this.relationToVictim = null;
+        this.demandMade = null;
+        this.lastSeen = null;
     }
 
     public Abduction(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, String CrimeType, String relationToVictim, String demandMade, String lastSeen) {

@@ -1,19 +1,22 @@
 package com.crimeinvestigation.system.model;
 
 public class Theft extends Crime implements CrimeType{
-    private String stolenItemDescription;
-    private String lossAmount;
+    protected String stolenItemDescription;
+    protected String lossAmount;
+    protected String crowdDensity;
 
-    public Theft(String stolenItemDescription, String lossAmount) {
+    public Theft() {
         super(0, false, null, null, null);
-        this.stolenItemDescription = stolenItemDescription;
-        this.lossAmount = lossAmount;
+        this.stolenItemDescription = null;
+        this.lossAmount = null;
+        this.crowdDensity = null;
     }
 
-    public Theft(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, String CrimeType, String stolenItemDescription, String lossAmount) {
+    public Theft(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, String CrimeType, String stolenItemDescription, String lossAmount , String crowdDensity) {
         super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive);
         this.stolenItemDescription = stolenItemDescription;
         this.lossAmount = lossAmount;
+        this.crowdDensity = crowdDensity;
     }
 
     public String getStolenItemDescription() {
@@ -31,6 +34,12 @@ public class Theft extends Crime implements CrimeType{
     public void setLossAmount(String lossAmount) {
         this.lossAmount = lossAmount;
     }
+    public String getCrowdDensity() {
+        return crowdDensity;
+    }
+    public void setCrowdDensity(String crowdDensity) {
+        this.crowdDensity = crowdDensity;
+    }
 
     @Override
     public void displayDetails() {
@@ -41,6 +50,7 @@ public class Theft extends Crime implements CrimeType{
         System.out.println("Motive: " + motive);
         System.out.println("Stolen Item Description: " + stolenItemDescription);
         System.out.println("Loss Amount: " + lossAmount);
+        System.out.println("Crowd Density: " + crowdDensity);
     }
 }
 
