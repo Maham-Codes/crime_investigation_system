@@ -3,8 +3,12 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
-
+@Inheritance(strategy = InheritanceType.JOINED)
+@Entity
 class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected int PersonID;
 
     protected String name;
     protected String FatherName;
@@ -12,9 +16,9 @@ class Person {
     protected String DOB;
     protected String Occupation;
     protected String CNIC;
-    protected int PersonID;
     protected String Gender;
 
+    public Person(){}
     Person(String name,String FatherName,String contactNumber,String DOB, String Occupation,String CNIC,int PersonID,String Gender)
     {
         this.name=name;
