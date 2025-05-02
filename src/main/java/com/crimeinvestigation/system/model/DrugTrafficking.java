@@ -1,6 +1,6 @@
 package com.crimeinvestigation.system.model;
 
-public class DrugTrafficking extends Crime{
+public class DrugTrafficking extends Crime implements CrimeType{
     protected String drugType;
     protected String quantity;
     protected String storageMethod;
@@ -26,6 +26,7 @@ public class DrugTrafficking extends Crime{
     public void setquantity(String quantity){this.quantity = quantity;}
     public void setstorageMethod(String storageMethod){this.storageMethod = storageMethod;}
 
+    @Override
     public void displayDetails() {
         System.out.println("Crime ID: " + crimeID);
         System.out.println("CCTV Presence: " + CCTVpresence);

@@ -1,6 +1,6 @@
 package com.crimeinvestigation.system.model;
 
-public class Theft extends Crime{
+public class Theft extends Crime implements CrimeType{
     private String stolenItemDescription;
     private String lossAmount;
 
@@ -30,6 +30,17 @@ public class Theft extends Crime{
 
     public void setLossAmount(String lossAmount) {
         this.lossAmount = lossAmount;
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("Crime ID: " + crimeID);
+        System.out.println("CCTV Presence: " + CCTVpresence);
+        System.out.println("Weapon Used: " + weaponUsed);
+        System.out.println("Injury Detail: " + injuryDetail);
+        System.out.println("Motive: " + motive);
+        System.out.println("Stolen Item Description: " + stolenItemDescription);
+        System.out.println("Loss Amount: " + lossAmount);
     }
 }
 

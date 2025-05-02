@@ -3,7 +3,7 @@ package com.crimeinvestigation.system.model;
 import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 
-public class Murder extends Crime{
+public class Murder extends Crime implements CrimeType{
     private LocalDateTime timeOfDeath;
     private String victimName;
     private boolean bodyRecovered;
@@ -59,5 +59,18 @@ public class Murder extends Crime{
 
     public void causeOfDeath(String autopsy){
         System.out.println("The cause of death can be known in detail from the autopsy report which is given in detail below: "+autopsy);
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("Crime ID: " + crimeID);
+        System.out.println("CCTV Presence: " + CCTVpresence);
+        System.out.println("Weapon Used: " + weaponUsed);
+        System.out.println("Injury Detail: " + injuryDetail);
+        System.out.println("Motive: " + motive);
+        System.out.println("Time: " + timeOfDeath);
+        System.out.println("Victim: " + victimName);
+        System.out.println("Is body recovered: " + bodyRecovered);
+        System.out.println("Autopsy Report: " + autopsy);
     }
 }
