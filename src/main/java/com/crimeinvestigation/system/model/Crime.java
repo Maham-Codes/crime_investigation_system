@@ -7,7 +7,9 @@ public class Crime {
      String injuryDetail;
      String motive ;
 
+Crime(){
 
+}
  Crime(int crimeID,boolean CCTVpresence,String weaponUsed, String injuryDetail,String motive) {
      this.crimeID=crimeID;
      this.CCTVpresence=CCTVpresence;
