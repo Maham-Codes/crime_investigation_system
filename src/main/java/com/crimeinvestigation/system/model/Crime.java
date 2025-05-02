@@ -6,14 +6,16 @@ public class Crime {
     String  weaponUsed;
      String injuryDetail;
      String motive ;
+     String CrimeType;
 
 
- Crime(int crimeID,boolean CCTVpresence,String weaponUsed, String injuryDetail,String motive) {
+ Crime(int crimeID,boolean CCTVpresence,String weaponUsed, String injuryDetail,String motive,String CrimeType) {
      this.crimeID=crimeID;
      this.CCTVpresence=CCTVpresence;
      this.weaponUsed=weaponUsed;
      this.injuryDetail=injuryDetail;
      this.motive=motive;
+     this.CrimeType = CrimeType;
  }
 
     public int getcrimeID(){return crimeID;}
@@ -26,5 +28,7 @@ public class Crime {
     public void setWeaponUsed(String weapponUsed){}
     public void setInjuryDetail(String injuryDetail){}
     public void setMotive(String motive) {this.motive=motive;}
+    public String CrimeType(){return CrimeType;}
+    public void setCrimeType(String CrimeType) {this.CrimeType=CrimeType;}
 
 }
