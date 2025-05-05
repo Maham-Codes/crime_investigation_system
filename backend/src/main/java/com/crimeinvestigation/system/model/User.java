@@ -1,6 +1,9 @@
 package com.crimeinvestigation.system.model;
 
+import jakarta.persistence.Entity;
+import lombok.NoArgsConstructor;
 
+@Entity
 public class User extends Person{
     public enum UserType {
         Victim,
@@ -10,6 +13,7 @@ public class User extends Person{
     protected String email;
 protected UserType UserType;
 
+    public User() {}
 
     User(String name,String FatherName,String contactNumber,String DOB, String Occupation,String CNIC,int PersonID,String Gender,String Address,
          String email,UserType UserType){
