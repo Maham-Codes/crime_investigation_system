@@ -1,10 +1,15 @@
 package com.crimeinvestigation.system.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public final class LawsAndPunishments {
-    private final String lawID;
-    private final String crimeType;
-    private final String sectionName;
-    private final String punishment;
+    @Id
+    private  String lawID;
+    private  String crimeType;
+    private  String sectionName;
+    private  String punishment;
 
     public LawsAndPunishments(String lawID,String crimeType , String sectionName, String punishment) {
         this.lawID = lawID;
@@ -12,6 +17,8 @@ public final class LawsAndPunishments {
         this.punishment = punishment;
         this.crimeType = crimeType;
     }
+
+    public LawsAndPunishments(){}
 
     public String getLawID() {
         return lawID;
