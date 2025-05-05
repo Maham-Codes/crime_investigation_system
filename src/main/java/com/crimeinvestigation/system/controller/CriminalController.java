@@ -1,6 +1,6 @@
 package com.crimeinvestigation.system.controller;
 
-import com.crimeinvestigation.system.dao.CriminalRepository;
+import com.crimeinvestigation.system.repository.CriminalRepository;
 import com.crimeinvestigation.system.model.Criminal;
 import org.springframework.web.bind.annotation.*;
 
