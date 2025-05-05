@@ -3,11 +3,8 @@ package com.crimeinvestigation.system.model;
 import jakarta.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Criminal extends Person {
-
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private int criminalID;
 
      protected String CrimeType;
      protected String CurrentStatus;
@@ -27,14 +24,6 @@ public class Criminal extends Person {
           this.Nationality = Nationality;
      }
 
-     // Getters and setters for criminal-specific fields
-     public int getCriminalID() {
-          return criminalID;
-     }
-
-     public void setCriminalID(int criminalID) {
-          this.criminalID = criminalID;
-     }
 
      public String getCrimeType() {
           return CrimeType;
