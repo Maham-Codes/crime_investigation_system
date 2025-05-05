@@ -3,7 +3,7 @@ package com.crimeinvestigation.system.model;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 public class Criminal extends Person {
 
      protected String CrimeType;

@@ -6,7 +6,6 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User extends Person{
     public enum UserType {
         Victim,

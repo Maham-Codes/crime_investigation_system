@@ -36,16 +36,6 @@ public class CriminalController {
         return criminalRepository.save(criminal);
     }
 
-    // Update criminal information
-    @PutMapping("/{id}")
-    public Criminal updateCriminal(@PathVariable int id, @RequestBody Criminal criminal) {
-        if (criminalRepository.existsById(id)) {
-            criminal.setCriminalID(id);  // Assuming there's a setCriminalID method
-            return criminalRepository.save(criminal);
-        }
-        return null; // Handle not found case
-    }
-
     // Delete criminal by ID
     @DeleteMapping("/{id}")
     public String deleteCriminal(@PathVariable int id) {
