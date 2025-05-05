@@ -1,4 +1,4 @@
-package com.crimeinvestigation.system.dao;
+package com.crimeinvestigation.system.repository;
 
 import com.crimeinvestigation.system.model.Evidence;
 import org.springframework.data.jpa.repository.JpaRepository;
