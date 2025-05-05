@@ -1,6 +1,10 @@
 package com.crimeinvestigation.system.model;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
     public class Helpline {
+    @Id
         private int HelplineID;
         private String region,helplineNo,helplineType;
 
@@ -10,6 +14,7 @@ package com.crimeinvestigation.system.model;
             this.region = region;
             this.helplineNo = helplineNo;
         }
+    public Helpline() {}
 
         public int getHelplineID() {
             return HelplineID;
