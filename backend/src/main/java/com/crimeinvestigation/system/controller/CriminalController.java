@@ -30,7 +30,7 @@ public class CriminalController {
         return criminalRepository.findById(id);
     }
 
-    // Create new criminal
+    // Create a new criminal
     @PostMapping
     public Criminal addCriminal(@RequestBody Criminal criminal) {
         return criminalRepository.save(criminal);
@@ -43,7 +43,7 @@ public class CriminalController {
             criminal.setPersonID(id);  // Assuming there's a setCriminalID method
             return criminalRepository.save(criminal);
         }
-        return null; // Handle not found case
+        return null; // Handle didn't find a case
     }
 
     // Delete criminal by ID

@@ -1,24 +1,37 @@
 package com.crimeinvestigation.system.model;
 
-public class Abduction extends Crime implements CrimeType{
-    protected String relationToVictim;
-    protected String demandMade;
-    protected String lastSeen;
+import jakarta.persistence.*;
 
-    public Abduction() {
-        super(0, false, null, null, null);
-        this.relationToVictim = null;
-        this.demandMade = null;
-        this.lastSeen = null;
-    }
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-    public Abduction(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, String CrimeType, String relationToVictim, String demandMade, String lastSeen) {
-        super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive);
+@Entity
+@PrimaryKeyJoinColumn(name = "caseID")
+public class Abduction extends CrimeCase {
+
+    private String relationToVictim;
+    private String demandMade;
+    private String lastSeen;
+   public Abduction(){}
+    public Abduction(LocalDate date, LocalDateTime time, String location, String description, String caseStatus,
+                     int userID, int evidenceID, boolean CCTVpresence, String weaponUsed, String injuryDetail,
+                     String motive, CrimeType crimeType, String relationToVictim, String demandMade, String lastSeen) {
+        super(date, time, location, description, caseStatus,
+                CCTVpresence, weaponUsed, injuryDetail, motive,
+                userID, evidenceID, crimeType);
         this.relationToVictim = relationToVictim;
         this.demandMade = demandMade;
         this.lastSeen = lastSeen;
     }
+    public Abduction(LocalDate date, LocalDateTime time, String location, String description, String caseStatus,
+                     int userID, int evidenceID, boolean CCTVpresence, String weaponUsed, String injuryDetail,
+                     String motive, CrimeType crimeType) {
+        super(date, time, location, description, caseStatus,
+                CCTVpresence, weaponUsed, injuryDetail, motive,
+                userID, evidenceID, crimeType);
+    }
 
+    // Getters and setters
     public String getRelationToVictim() {
         return relationToVictim;
     }
@@ -44,15 +57,10 @@ public class Abduction extends Crime implements CrimeType{
     }
 
     @Override
-    public void displayDetails(){
-        System.out.println("Crime ID: " + crimeID);
-        System.out.println("CCTV Presence: " + CCTVpresence);
-        System.out.println("Weapon Used: " + weaponUsed);
-        System.out.println("Injury Detail: " + injuryDetail);
-        System.out.println("Motive: " + motive);
+    public void displayDetails() {
+        super.displayDetails();
         System.out.println("Relation To Victim: " + relationToVictim);
         System.out.println("Demand Made: " + demandMade);
         System.out.println("Last Seen: " + lastSeen);
     }
 }
-

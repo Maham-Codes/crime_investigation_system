@@ -5,11 +5,13 @@ import jakarta.persistence.*;
 @Entity
 public class Criminal extends Person {
 
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     private int criminalID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int criminalID;
 
-     protected String crimeType;
+     @ManyToOne
+     @JoinColumn(name = "crime_type_id")
+     protected CrimeType crimeType;
      protected String currentStatus;
      protected String reputation;
      protected String nationality;
@@ -19,7 +21,7 @@ public class Criminal extends Person {
 
      // Constructor with parameters
      public Criminal(String name, String FatherName, String contactNumber, String DOB, String Occupation, String CNIC,
-                     int PersonID, String Gender, String crimeType, String currentStatus, String reputation, String nationality) {
+                     int PersonID, String Gender, CrimeType crimeType, String currentStatus, String reputation, String nationality) {
           super(name, FatherName, contactNumber, DOB, Occupation, CNIC, PersonID, Gender);
           this.crimeType = crimeType;
           this.currentStatus = currentStatus;
@@ -27,20 +29,12 @@ public class Criminal extends Person {
           this.nationality = nationality;
      }
 
-     // Getters and setters for criminal-specific fields
-//     public int getCriminalID() {
-//          return criminalID;
-//     }
 
-//     public void setCriminalID(int criminalID) {
-//          this.criminalID = criminalID;
-//     }
-
-     public String getCrimeType() {
+     public CrimeType getCrimeType() {
           return crimeType;
      }
 
-     public void setCrimeType(String crimeType) {
+     public void setCrimeType(CrimeType crimeType) {
           this.crimeType = crimeType;
      }
 
