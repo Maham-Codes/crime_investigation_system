@@ -1,7 +1,9 @@
 package com.crimeinvestigation.system.model;
 
 import jakarta.persistence.Entity;
-import lombok.NoArgsConstructor;
+import com.crimeinvestigation.system.enums.Role;
+import jakarta.persistence.*;
+
 
 @Entity
 public class User extends Person{
@@ -10,8 +12,15 @@ public class User extends Person{
         Eyewtiness
     }
     protected String Address;
-    protected String email;
-protected UserType UserType;
+
+    @Column(unique = true)
+    private String email;
+
+    private String password;
+    protected UserType UserType;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public User() {}
 
@@ -29,5 +38,12 @@ protected UserType UserType;
     public String getEmail() {return email;}
     public void setUserType(UserType UserType){this.UserType=UserType;}
     public UserType getUserType() {return UserType;}
+
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public Role getRole() { return role; }
+    public void setRole(Role role) { this.role = role; }
 
 }
