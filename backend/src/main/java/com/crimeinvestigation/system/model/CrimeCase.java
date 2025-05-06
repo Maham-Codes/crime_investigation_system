@@ -1,61 +1,49 @@
 package com.crimeinvestigation.system.model;
 
+import com.crimeinvestigation.system.enums.CaseStatus;
 import jakarta.persistence.*;
+import com.crimeinvestigation.system.enums.CrimeType;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 public class CrimeCase {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int caseID;
+    private long id;
 
     protected LocalDate date;
     protected LocalDateTime time;
     protected String location;
     protected String description;
     protected String caseStatus;
-
-    protected boolean CCTVpresence;
-    protected String weaponUsed;
-    protected String injuryDetail;
-    protected String motive;
-
     protected int userID;
     protected int evidenceID;
 
+    @Enumerated(EnumType.STRING)
+    private CrimeType type;
+
+    @Enumerated(EnumType.STRING)
+    private CaseStatus status;
+
     @ManyToOne
-    @JoinColumn(name = "crime_type_id")
-    protected CrimeType crimeType;
+    private Investigator assignedInvestigator;
 
-    public CrimeCase() {}
-
-    public CrimeCase(LocalDate date, LocalDateTime time, String location, String description, String caseStatus,
-                     boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive,
-                     int userID, int evidenceID, CrimeType crimeType) {
+    public CrimeCase(LocalDate date, LocalDateTime time, String location, String description, String status, int userID, int evidenceID) {
         this.date = date;
         this.time = time;
         this.location = location;
         this.description = description;
-        this.caseStatus = caseStatus;
-        this.CCTVpresence = CCTVpresence;
-        this.weaponUsed = weaponUsed;
-        this.injuryDetail = injuryDetail;
-        this.motive = motive;
+        this.caseStatus = status;
         this.userID = userID;
         this.evidenceID = evidenceID;
-        this.crimeType = crimeType;
     }
+
+    public CrimeCase(){}
 
     // Getters and Setters
-    public int getCaseID() {
-        return caseID;
-    }
 
-    public void setCaseID(int caseID) {
-        this.caseID = caseID;
-    }
 
     public LocalDate getDate() {
         return date;
@@ -97,38 +85,6 @@ public class CrimeCase {
         this.caseStatus = caseStatus;
     }
 
-    public boolean isCCTVpresence() {
-        return CCTVpresence;
-    }
-
-    public void setCCTVpresence(boolean CCTVpresence) {
-        this.CCTVpresence = CCTVpresence;
-    }
-
-    public String getWeaponUsed() {
-        return weaponUsed;
-    }
-
-    public void setWeaponUsed(String weaponUsed) {
-        this.weaponUsed = weaponUsed;
-    }
-
-    public String getInjuryDetail() {
-        return injuryDetail;
-    }
-
-    public void setInjuryDetail(String injuryDetail) {
-        this.injuryDetail = injuryDetail;
-    }
-
-    public String getMotive() {
-        return motive;
-    }
-
-    public void setMotive(String motive) {
-        this.motive = motive;
-    }
-
     public int getUserID() {
         return userID;
     }
@@ -145,14 +101,21 @@ public class CrimeCase {
         this.evidenceID = evidenceID;
     }
 
-    public CrimeType getCrimeType() {
-        return crimeType;
-    }
+    public CrimeType gettype() { return type; }
+    public void settype(CrimeType type) { this.type = type; }
 
-    public void setCrimeType(CrimeType crimeType) {
-        this.crimeType = crimeType;
-    }
-    public void displayDetails(){
 
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
+
+    public CaseStatus getStatus() { return status; }
+
+    public void setStatus(CaseStatus status) { this.status = status; }
+
+    public Investigator getAssignedInvestigator() { return assignedInvestigator; }
+
+    public void setAssignedInvestigator(Investigator investigator) {
+        this.assignedInvestigator = investigator;
     }
 }
