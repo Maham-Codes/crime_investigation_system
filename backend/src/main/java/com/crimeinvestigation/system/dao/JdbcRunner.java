@@ -15,5 +15,9 @@ public class JdbcRunner {
         HelplineDao helplineDao = new HelplineDao();
         helplineDao.getHelplinesByRegionAndType("Islamabad", "Murder");
 
+        //joins query. Gives info about convicted criminals
+        CriminalDao dao = new CriminalDao();
+        dao.getActiveCriminalCases();
+
     }
 }
