@@ -25,5 +25,10 @@ public class JdbcRunner {
         CaseTrackingDao caseDao = new CaseTrackingDao();
         caseDao.getCasesWithAboveAverageUpdates();
 
+        //correlated subquery
+        //List cases where the latest tracking update contains the word 'Closed'.
+        CrimeCaseDao closedDao = new CrimeCaseDao();
+        closedDao.getClosedCases();
+
     }
 }
