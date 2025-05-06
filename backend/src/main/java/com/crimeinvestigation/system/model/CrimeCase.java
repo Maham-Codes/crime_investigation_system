@@ -1,5 +1,9 @@
 package com.crimeinvestigation.system.model;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import com.crimeinvestigation.system.enums.CrimeType;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -12,6 +16,9 @@ public class CrimeCase {
     protected String caseStatus;
     protected int userID;
     protected int evidenceID;
+
+    @Enumerated(EnumType.STRING)
+    private CrimeType type;
 
     public CrimeCase(int caseID, LocalDate date, LocalDateTime time, String location, String description, String status, int userID, int evidenceID) {
         this.caseID = caseID;
@@ -88,5 +95,8 @@ public class CrimeCase {
     public void setEvidenceID(int evidenceID) {
         this.evidenceID = evidenceID;
     }
+
+    public CrimeType gettype() { return type; }
+    public void settype(CrimeType type) { this.type = type; }
 
 }
