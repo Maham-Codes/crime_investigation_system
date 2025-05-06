@@ -13,8 +13,8 @@ public class JdbcRunner {
 
         //joins query.
         //Gives info about convicted criminals
-        CriminalDao dao = new CriminalDao();
-        dao.getActiveCriminalCases();
+        CriminalDao crimedao = new CriminalDao();
+        crimedao.getActiveCriminalCases();
 
         //non correlated subquery
         //all cases that have more updates than the average number of updates per case
