@@ -1,13 +1,24 @@
 package com.crimeinvestigation.system.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Crime {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int crimeID;
     boolean CCTVpresence;
+
     String  weaponUsed;
-     String injuryDetail;
-     String motive ;
+    String injuryDetail;
+    String motive ;
 
 
+    public Crime(){}
  Crime(int crimeID,boolean CCTVpresence,String weaponUsed, String injuryDetail,String motive) {
      this.crimeID=crimeID;
      this.CCTVpresence=CCTVpresence;
