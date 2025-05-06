@@ -1,9 +1,5 @@
 package com.crimeinvestigation.system.dao;
 
-import com.crimeinvestigation.system.dao.CrimeTypeDao;
-import com.crimeinvestigation.system.model.CrimeType;
-import java.util.List;
-
 public class JdbcRunner {
     public void runJdbcApp() {
 
@@ -17,8 +13,8 @@ public class JdbcRunner {
 
         //joins query.
         //Gives info about convicted criminals
-        CriminalDao dao = new CriminalDao();
-        dao.getActiveCriminalCases();
+        CriminalDao crimedao = new CriminalDao();
+        crimedao.getActiveCriminalCases();
 
         //non correlated subquery
         //all cases that have more updates than the average number of updates per case
@@ -29,6 +25,11 @@ public class JdbcRunner {
         //List cases where the latest tracking update contains the word 'Closed'.
         CrimeCaseDao closedDao = new CrimeCaseDao();
         closedDao.getClosedCases();
+
+        //nested Subquery
+        //Find criminals who are involved in cases with poor feedback (rating 2 or below), and those cases have not been updated in tracking for over 30 days.
+        LowRatedCriminalsDao lowratedcriminalsdao = new LowRatedCriminalsDao();
+        lowratedcriminalsdao.getLowRatedInactiveCriminals();
 
     }
 }

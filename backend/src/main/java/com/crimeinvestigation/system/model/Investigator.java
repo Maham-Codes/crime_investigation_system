@@ -8,6 +8,7 @@ public class Investigator extends Person {
     protected String band;
     protected int NoOfCurrentCases;
     protected int solvedCases;
+    private String role = "INVESTIGATOR";
 
     @Column(unique = true)
     private String email;
