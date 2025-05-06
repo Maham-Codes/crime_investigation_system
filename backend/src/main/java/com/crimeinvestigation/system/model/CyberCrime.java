@@ -1,6 +1,16 @@
 package com.crimeinvestigation.system.model;
 
-public class CyberCrime extends Crime implements CrimeType {
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity
+@PrimaryKeyJoinColumn(name = "caseID")
+public class CyberCrime extends CrimeCase {
 
     public enum CyberType {
         PHISHING,
@@ -10,29 +20,30 @@ public class CyberCrime extends Crime implements CrimeType {
         IDENTITY_THEFT
     }
 
-    protected CyberType cyberType;
-    protected String platform;
-    protected boolean threatsInvolved;
-    protected String offenderAccountId;
+    @Enumerated(EnumType.STRING)
+    private CyberType cyberType;
+    private String platform;
+    private boolean threatsInvolved;
+    private String offenderAccountId;
 
     public CyberCrime() {
-        super(0, false, null, null, null);
-        this.cyberType = null;
-        this.platform = null;
-        this.threatsInvolved = false;
-        this.offenderAccountId = null;
+        super();
     }
 
-    public CyberCrime(int crimeID, boolean CCTVpresence, String weaponUsed, String injuryDetail,
-                      String motive, CyberType cyberType, String platform,
+    public CyberCrime(LocalDate date, LocalDateTime time, String location, String description, String caseStatus,
+                      int userID, int evidenceID, boolean CCTVpresence, String weaponUsed, String injuryDetail,
+                      String motive, CrimeType crimeType, CyberType cyberType, String platform,
                       boolean threatsInvolved, String offenderAccountId) {
-        super(crimeID, CCTVpresence, weaponUsed, injuryDetail, motive);
+        super(date, time, location, description, caseStatus,
+                CCTVpresence, weaponUsed, injuryDetail, motive,
+                userID, evidenceID, crimeType);
         this.cyberType = cyberType;
         this.platform = platform;
         this.threatsInvolved = threatsInvolved;
         this.offenderAccountId = offenderAccountId;
     }
 
+    // Getters and setters
     public CyberType getCyberType() {
         return cyberType;
     }
@@ -67,15 +78,10 @@ public class CyberCrime extends Crime implements CrimeType {
 
     @Override
     public void displayDetails() {
-        System.out.println("Crime ID: " + crimeID);
-        System.out.println("CCTV Presence: " + CCTVpresence);
-        System.out.println("Weapon Used: " + weaponUsed);
-        System.out.println("Injury Detail: " + injuryDetail);
-        System.out.println("Motive: " + motive);
+        super.displayDetails();
         System.out.println("Cyber Type: " + cyberType);
         System.out.println("Platform: " + platform);
         System.out.println("Threats Involved: " + threatsInvolved);
         System.out.println("Offender Account ID: " + offenderAccountId);
     }
 }
-
