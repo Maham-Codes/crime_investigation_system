@@ -1,102 +1,34 @@
 package com.crimeinvestigation.system.model;
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.time.LocalDate;
 import java.time.Period;
 
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "person")
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int PersonID;
+    protected int personid;
 
     protected String name;
-    protected String FatherName;
-    protected String contactNumber;
-    protected String DOB;
-    protected String Occupation;
-    protected String CNIC;
-    protected String Gender;
+    protected String father_name;
+    protected String contact_number;
+    protected String dob;
+    protected String occupation;
+    protected String cnic;
+    protected String gender;
 
-    public Person(){}
-    Person(String name,String FatherName,String contactNumber,String DOB, String Occupation,String CNIC,int PersonID,String Gender)
-    {
-        this.name=name;
-        this.FatherName=FatherName;
-        this.contactNumber=contactNumber;
-        this.DOB=DOB;
-        this.Occupation=Occupation;
-        this.CNIC=CNIC;
-        this.PersonID=PersonID;
-        this.Gender=Gender;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFatherName() {
-        return FatherName;
-    }
-
-    public void setFatherName(String fatherName) {
-        FatherName = fatherName;
-    }
-
-    public String getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-    public String getDOB() {
-        return DOB;
-    }
-
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
-    }
-
-    public String getOccupation() {
-        return Occupation;
-    }
-
-    public void setOccupation(String occupation) {
-        Occupation = occupation;
-    }
-
-    public String getCNIC() {
-        return CNIC;
-    }
-
-    public void setCNIC(String CNIC) {
-        this.CNIC = CNIC;
-    }
-
-    public int getPersonID() {
-        return PersonID;
-    }
-
-    public void setPersonID(int personID) {
-        PersonID = personID;
-    }
-
-    public String getGender() {
-        return Gender;
-    }
-
-    public void setGender(String gender) {
-        Gender = gender;
-    }
 
     public int getAge() {
         try {
-            LocalDate dob = LocalDate.parse(DOB);
+            LocalDate dob = LocalDate.parse(getDob());
             LocalDate today = LocalDate.now();
             return Period.between(dob, today).getYears();
         } catch (Exception e) {

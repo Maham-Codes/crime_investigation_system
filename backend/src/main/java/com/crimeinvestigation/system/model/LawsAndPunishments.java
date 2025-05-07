@@ -1,45 +1,27 @@
 package com.crimeinvestigation.system.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
+
 
 @Entity
+@Table(name = "laws_and_punishments")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public final class LawsAndPunishments {
     @Id
     private  String lawID;
-    private  String crimeType;
-    private  String sectionName;
+    private  String crime_type;
+    private  String section_name;
     private  String punishment;
 
-    public LawsAndPunishments(String lawID,String crimeType , String sectionName, String punishment) {
-        this.lawID = lawID;
-        this.sectionName = sectionName;
-        this.punishment = punishment;
-        this.crimeType = crimeType;
-    }
-
-    public LawsAndPunishments(){}
-
-    public String getLawID() {
-        return lawID;
-    }
-
-    public String getSectionName() {
-        return sectionName;
-    }
-
-    public String getPunishment() {
-        return punishment;
-    }
-
-    public String getcrimeType() {
-        return crimeType;
-    }
 
     public  void displayDetails() {
         System.out.println("LawID: "+lawID);
-        System.out.println("Crime Type: "+crimeType);
-        System.out.println("Law: "+sectionName);
+        System.out.println("Crime Type: "+crime_type);
+        System.out.println("Law: "+section_name);
         System.out.println("Punishment: "+punishment);
     }
 }

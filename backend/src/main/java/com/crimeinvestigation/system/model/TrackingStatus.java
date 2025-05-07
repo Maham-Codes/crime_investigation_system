@@ -1,53 +1,38 @@
 package com.crimeinvestigation.system.model;
 
-import java.time.LocalDate;
+import com.crimeinvestigation.system.enums.CaseStatus;
+import jakarta.persistence.*;
+import lombok.*;
 
+
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "tracking_status")
 public class TrackingStatus {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int trackingID;
-    private int caseID;
-    private String updateSatus;
-    private LocalDate updateDate;
+    @ManyToOne
+    @JoinColumn(name = "caseID", referencedColumnName = "caseID")
+    private CrimeCase caseID;
 
-    TrackingStatus(int trackingID,int caseID,String updateSatus,LocalDate updateDate){
-        this.trackingID=trackingID;
-        this.caseID=caseID;
-        this.updateSatus=updateSatus;
-        this.updateDate=updateDate;
-    }
-    //getters and setters
-    public int getTrackingID() {
-        return trackingID;
-    }
-    public void setTrackingID(int trackingID) {
-        this.trackingID = trackingID;
-    }
-    public int getCaseID() {
-        return caseID;
-    }
-    public void setCaseID(int caseID) {
-        this.caseID = caseID;
-    }
-    public String getUpdateSatus() {
-        return updateSatus;
-    }
-    public void setUpdateSatus(String updateSatus) {
-        this.updateSatus = updateSatus;
-    }
-    public LocalDate getUpdateDate() {
-        return updateDate;
-    }
-    public void setUpdateDate(LocalDate updateDate) {
-        this.updateDate = updateDate;
-    }
+    @Enumerated(EnumType.STRING)
+    @Getter
+    @Setter
+    private CaseStatus updateStatus;
+
     public void displayStatus() {
         System.out.println("Tracking ID: " + trackingID);
         System.out.println("Case ID: " + caseID);
-        System.out.println("Status: " + updateSatus);
-        System.out.println("Last Updated: " + updateDate);
+        System.out.println("Status: " + updateStatus);
     }
-    public void updateStatus(String newStatus, String comments) {
+    /*public void updateStatus(String newStatus, String comments) {
         this.updateSatus = newStatus;
         this.updateDate = LocalDate.now(); // Automatically update the date when caseStatus is changed
-    }
+    }*/
 
 }
