@@ -30,7 +30,7 @@ public class CrimeCase {
     @ManyToOne
     private Investigator assignedInvestigator;
 
-    public CrimeCase(LocalDate date, LocalDateTime time, String location, String description, String status, int userID, int evidenceID) {
+    public CrimeCase(LocalDate date, LocalDateTime time, String location, String description, String status, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, int userID, int evidenceID, com.crimeinvestigation.system.model.CrimeType crimeType) {
         this.date = date;
         this.time = time;
         this.location = location;
@@ -118,4 +118,5 @@ public class CrimeCase {
     public void setAssignedInvestigator(Investigator investigator) {
         this.assignedInvestigator = investigator;
     }
+ public void displayDetails() {}
 }
