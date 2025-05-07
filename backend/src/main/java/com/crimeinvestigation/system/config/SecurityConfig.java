@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -31,12 +32,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()  // Disable CSRF for APIs
+                // Disable CSRF (you can choose other methods if required)
+                .csrf(csrf -> csrf.disable())  // Disabling CSRF protection
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/cases/update-status/**").hasRole("INVESTIGATOR")  // 🔒 Protected path
                         .anyRequest().permitAll()  // Allow other paths for now
                 )
-                .httpBasic();  // Use basic auth for now (you can use .formLogin() for UI)
+                .httpBasic(httpBasic -> httpBasic.disable());  // Disable HTTP basic authentication
 
         return http.build();
     }
