@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class CrimeCase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int caseID;
 
     protected LocalDate date;
     protected LocalDateTime time;
@@ -105,9 +105,9 @@ public class CrimeCase {
     public void settype(CrimeType type) { this.type = type; }
 
 
-    public Long getId() { return id; }
+    public int getCaseID() { return caseID; }
 
-    public void setId(Long id) { this.id = id; }
+    public void setCaseID(int caseID) { this.caseID = caseID; }
 
     public CaseStatus getStatus() { return status; }
 

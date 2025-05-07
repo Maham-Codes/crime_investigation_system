@@ -53,6 +53,10 @@ public class Kidnapping extends CrimeCase {
         this.lastSeen = lastSeen;
     }
 
+    public void test(){
+
+    }
+
     @Override
     public void displayDetails() {
         super.displayDetails();

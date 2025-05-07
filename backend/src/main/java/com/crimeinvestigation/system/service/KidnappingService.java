@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @Service
 public class KidnappingService {
 
@@ -27,9 +29,10 @@ public class KidnappingService {
         return repository.save(kidnapping);
     }
 
-    public Kidnapping updateKidnappingCase(int id, Kidnapping updated) {
-        if (repository.existsById(id)) {
-            updated.setCaseID(id);
+    public Kidnapping updateKidnappingCase(int caseID, Kidnapping updated) {
+
+        if (repository.existsById(caseID)) {
+            updated.setCaseID(caseID);
             return repository.save(updated);
         }
         return null;
