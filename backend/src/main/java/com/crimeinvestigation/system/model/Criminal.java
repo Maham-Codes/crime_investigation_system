@@ -3,6 +3,7 @@ package com.crimeinvestigation.system.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "criminal")
 public class Criminal extends Person {
 
     @Id
