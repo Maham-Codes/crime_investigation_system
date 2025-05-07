@@ -2,8 +2,8 @@ package com.crimeinvestigation.system.model;
 
 import com.crimeinvestigation.system.enums.CaseStatus;
 import jakarta.persistence.*;
-import com.crimeinvestigation.system.enums.CrimeType;
-
+import lombok.*;
+//import com.crimeinvestigation.system.enums.CrimeType;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -11,43 +11,42 @@ import java.time.LocalDateTime;
 public class CrimeCase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "caseID")
     private int caseID;
 
+    @Getter
     protected LocalDate date;
     protected LocalDateTime time;
     protected String location;
     protected String description;
-    protected String caseStatus;
     protected int userID;
     protected int evidenceID;
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
+    @JoinColumn(name = "typeID")
     private CrimeType type;
 
     @Enumerated(EnumType.STRING)
-    private CaseStatus status;
+    protected String caseStatus;
 
     @ManyToOne
     private Investigator assignedInvestigator;
 
-    public CrimeCase(LocalDate date, LocalDateTime time, String location, String description, String status, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, int userID, int evidenceID, com.crimeinvestigation.system.model.CrimeType crimeType) {
+    public CrimeCase(LocalDate date, LocalDateTime time, String location, String description, String caseStatus, boolean CCTVpresence, String weaponUsed, String injuryDetail, String motive, int userID, int evidenceID, CrimeType type) {
         this.date = date;
         this.time = time;
         this.location = location;
         this.description = description;
-        this.caseStatus = status;
+        this.caseStatus = caseStatus;
         this.userID = userID;
         this.evidenceID = evidenceID;
+        this.type = type;
     }
 
     public CrimeCase(){}
 
     // Getters and Setters
 
-
-    public LocalDate getDate() {
-        return date;
-    }
 
     public void setDate(LocalDate date) {
         this.date = date;
@@ -101,22 +100,24 @@ public class CrimeCase {
         this.evidenceID = evidenceID;
     }
 
-    public CrimeType gettype() { return type; }
-    public void settype(CrimeType type) { this.type = type; }
+    public CrimeType getType() { return type; }
+    public void setType(CrimeType type) { this.type = type; }
 
 
     public int getCaseID() { return caseID; }
 
     public void setCaseID(int caseID) { this.caseID = caseID; }
 
-    public CaseStatus getStatus() { return status; }
+    public String getStatus() { return caseStatus; }
 
-    public void setStatus(CaseStatus status) { this.status = status; }
+    public void setStatus(String status) { this.caseStatus = caseStatus; }
 
     public Investigator getAssignedInvestigator() { return assignedInvestigator; }
 
     public void setAssignedInvestigator(Investigator investigator) {
         this.assignedInvestigator = investigator;
     }
- public void displayDetails() {}
+
+
+    public void displayDetails() {}
 }

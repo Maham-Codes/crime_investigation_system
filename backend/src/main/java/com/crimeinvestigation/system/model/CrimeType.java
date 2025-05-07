@@ -8,15 +8,15 @@ public class CrimeType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int crimeTypeId;
+    protected int typeID;
 
     protected String name;
 
     // Constructors
     public CrimeType() {}
 
-    public CrimeType(int crimeTypeId,String name) {
-        this.crimeTypeId = crimeTypeId;
+    public CrimeType(int typeID, String name) {
+        this.typeID = typeID;
         this.name = name;
     }
 
@@ -26,7 +26,7 @@ public class CrimeType {
 
     // Getters and Setters
     public int getId() {
-        return crimeTypeId;
+        return typeID;
     }
 
     public String getName() {
@@ -37,6 +37,6 @@ public class CrimeType {
         this.name = name;
     }
     public void setId(int crimeTypeId) {
-        this.crimeTypeId = crimeTypeId;
+        this.typeID = crimeTypeId;
     }
 }

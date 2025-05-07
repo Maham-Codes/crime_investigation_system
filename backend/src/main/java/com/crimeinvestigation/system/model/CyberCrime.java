@@ -1,9 +1,6 @@
 package com.crimeinvestigation.system.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -34,7 +31,7 @@ public class CyberCrime extends CrimeCase {
                       int userID, int evidenceID, boolean CCTVpresence, String weaponUsed, String injuryDetail,
                       String motive, CrimeType crimeType, CyberType cyberType, String platform,
                       boolean threatsInvolved, String offenderAccountId) {
-        super(date, time, location, description, caseStatus,
+        super (date, time, location, description, caseStatus,
                 CCTVpresence, weaponUsed, injuryDetail, motive,
                 userID, evidenceID, crimeType);
         this.cyberType = cyberType;
