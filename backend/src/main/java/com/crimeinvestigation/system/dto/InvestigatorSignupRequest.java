@@ -2,8 +2,7 @@ package com.crimeinvestigation.system.dto;
 
 import com.crimeinvestigation.system.enums.CrimeType;
 import com.crimeinvestigation.system.enums.Gender;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+
 
 public class InvestigatorSignupRequest {
     public String name;
