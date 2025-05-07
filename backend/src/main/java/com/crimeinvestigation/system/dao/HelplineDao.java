@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class HelplineDao {
     public void getHelplinesByRegionAndType(String region, String type) {
-        String sql = "SELECT * FROM Helpline WHERE region_area = ? AND helplinetype = ?";
+        String sql = "SELECT * FROM helpline WHERE region_area = ? AND helplinetype = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

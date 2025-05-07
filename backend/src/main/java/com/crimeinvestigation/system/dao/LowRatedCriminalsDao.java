@@ -13,15 +13,15 @@ public class LowRatedCriminalsDao {
         //Find criminals who are involved in cases with poor feedback (rating 2 or below), and those cases have not been updated in tracking for over 30 days.
 
         String sql = "SELECT c.criminalID, c.nationality, c.currentStatus, cc.caseID " +
-                "FROM Criminal c " +
-                "JOIN Crime_Case cc ON c.caseID = cc.caseID " +
+                "FROM criminal c " +
+                "JOIN crime_case cc ON c.caseID = cc.caseID " +
                 "WHERE cc.caseID IN ( " +
                 "    SELECT f.caseID " +
-                "    FROM Feedback f " +
+                "    FROM feedback f " +
                 "    WHERE f.rating <= 2 " +
                 "    AND f.caseID IN ( " +
                 "        SELECT t.caseID " +
-                "        FROM Tracking_Status t " +
+                "        FROM tracking_status t " +
                 "        GROUP BY t.caseID " +
                 "        HAVING MAX(t.updateStatus) < NOW() - INTERVAL 30 DAY " +
                 "    ) " +

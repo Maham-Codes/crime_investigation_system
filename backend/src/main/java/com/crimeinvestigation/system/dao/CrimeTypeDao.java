@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class CrimeTypeDao {
     public void getAllCrimeTypes() {
-        String sql = "SELECT * FROM CrimeType";
+        String sql = "SELECT * FROM crimetype";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);

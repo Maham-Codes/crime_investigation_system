@@ -10,7 +10,7 @@ public class Criminal extends Person {
     private int criminalID;
 
      @ManyToOne
-     @JoinColumn(name = "crime_type_id")
+     @JoinColumn(name = "typeID")
      protected CrimeType crimeType;
      protected String currentStatus;
      protected String reputation;

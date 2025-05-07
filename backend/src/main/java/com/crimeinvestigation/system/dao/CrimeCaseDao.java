@@ -15,10 +15,10 @@ public class CrimeCaseDao {
                 "cc.caseID, " +
                 "cc.caseType, " +
                 "cc.caseStatus " +
-                "FROM Crime_Case cc " +
+                "FROM crime_case cc " +
                 "WHERE (" +
                 "    SELECT t.updateStatus " +
-                "    FROM Tracking_Status t " +
+                "    FROM tracking_status t " +
                 "    WHERE t.caseID = cc.caseID " +
                 "    ORDER BY t.trackingID DESC " +
                 "    LIMIT 1" +

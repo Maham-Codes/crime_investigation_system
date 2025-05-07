@@ -17,9 +17,9 @@ public class CriminalDao {
                 "u.first_name AS investigatorFirstName," +
                 "u.last_name AS investigatorLastName, " +
                 "c.currentStatus " +
-                "FROM Criminal c " +
-                "JOIN Crime_Case cc ON c.caseID = cc.caseID " +
-                "JOIN User u ON cc.userID = u.userID " +
+                "FROM criminal c " +
+                "JOIN crime_case cc ON c.caseID = cc.caseID " +
+                "JOIN user u ON cc.userID = u.userID " +
                 "WHERE c.currentStatus='Convicted'";
 
         try (Connection conn = DatabaseConnection.getConnection();

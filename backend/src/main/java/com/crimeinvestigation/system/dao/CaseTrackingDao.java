@@ -13,12 +13,12 @@ public class CaseTrackingDao {
                 "cc.caseID, " +
                 "cc.caseType, " +
                 "COUNT(ts.trackingID) AS totalUpdates " +
-                "FROM Crime_Case cc " +
-                "JOIN Tracking_Status ts ON cc.caseID = ts.caseID " +
+                "FROM crime_case cc " +
+                "JOIN tracking_status ts ON cc.caseID = ts.caseID " +
                 "GROUP BY cc.caseID, cc.caseType " +
                 "HAVING COUNT(ts.trackingID) > (" +
                 "   SELECT AVG(updateCount) FROM (" +
-                "       SELECT COUNT(trackingID) AS updateCount FROM Tracking_Status GROUP BY caseID" +
+                "       SELECT COUNT(trackingID) AS updateCount FROM tracking_status GROUP BY caseID" +
                 "   ) AS avgUpdates" +
                 ")";
 
