@@ -12,7 +12,7 @@ import java.time.Period;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-class Person {
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int personid;
