@@ -2,6 +2,8 @@ package com.crimeinvestigation.system.service;
 
 import com.crimeinvestigation.system.dto.InvestigatorSignupRequest;
 import com.crimeinvestigation.system.dto.UserSignupRequest;
+import com.crimeinvestigation.system.enums.Role;
+import com.crimeinvestigation.system.enums.UserType;
 import com.crimeinvestigation.system.model.Investigator;
 import com.crimeinvestigation.system.model.User;
 import com.crimeinvestigation.system.repository.InvestigatorRepository;
@@ -23,12 +25,13 @@ public class AuthService {
     public Investigator registerInvestigator(InvestigatorSignupRequest request) {
         Investigator inv = new Investigator();
         inv.setName(request.name);
-        inv.setFatherName(request.fatherName);
-        inv.setContactNumber(request.contactNumber);
-        inv.setDOB(request.dob);
+        inv.setFather_name(request.fatherName);
+        inv.setEmail(request.email);
+        inv.setContact_number(request.contactNumber);
+        inv.setDob(request.dob);
         inv.setOccupation(request.occupation);
-        inv.setCNIC(request.cnic);
-        inv.setPersonID(request.personId);
+        inv.setCnic(request.cnic);
+        inv.setPersonid(request.personId);
         inv.setGender(String.valueOf(request.inv_gender));
         inv.setBand(request.rank);
         inv.setNoOfCurrentCases(request.noOfCurrentCases);
@@ -42,12 +45,17 @@ public class AuthService {
     public User registerUser(UserSignupRequest request) {
         User user = new User();
         user.setName(request.fullName);
-        user.setFatherName(request.fatherName);
-        user.setContactNumber(request.contactNumber);
-        user.setDOB(request.dob);
+      //  user.setFatherName(request.fatherName);
+        user.setFather_name(request.fatherName);
+       // user.setContactNumber(request.contactNumber);
+        user.setContact_number(request.contactNumber);
+       // user.setDOB(request.dob);
+        user.setDob(request.dob);
         user.setOccupation(request.occupation);
-        user.setCNIC(request.CNICNumber);
-        user.setPersonID(request.personId);
+       // user.setCNIC(request.CNICNumber);
+        user.setCnic(request.CNICNumber);
+       // user.setPersonID(request.personId);
+        user.setPersonid(request.personId);
         user.setGender(String.valueOf(request.user_gender));
         user.setEmail(request.email);
         user.setPassword(request.password);

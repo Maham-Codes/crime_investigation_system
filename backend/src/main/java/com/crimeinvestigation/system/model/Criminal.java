@@ -27,8 +27,8 @@ public class Criminal extends Person {
     @Enumerated(EnumType.STRING)
     private CrimeType crimeType;
     protected String currentStatus;
-     protected String reputation;
-     protected String nationality;
+    protected String reputation;
+    protected String nationality;
 
      @Override
      public void displayDetails(){
