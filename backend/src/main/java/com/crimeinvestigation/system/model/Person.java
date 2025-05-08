@@ -36,4 +36,13 @@ class Person {
             return 0;
         }
     }
+
+    public void displayDetails(){
+        System.out.println("Name: " + getName());
+        System.out.println("Father: " + getFather_name());
+        System.out.println("Contact: " + getContact_number());
+        System.out.println("Occupation: " + getOccupation());
+        System.out.println("Birthday: " + getDob());
+        System.out.println("Gender: " + getGender());
+    }
 }

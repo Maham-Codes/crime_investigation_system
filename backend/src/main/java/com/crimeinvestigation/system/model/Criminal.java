@@ -12,29 +12,31 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@PrimaryKeyJoinColumn(name = "personID")
 public class Criminal extends Person {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int criminalID;
 
     @ManyToMany
     @JoinTable(
-            name = "crime_case_criminal",  // Join table name
-            joinColumns = @JoinColumn(name = "criminalID"),  // Foreign key referring to Criminal
-            inverseJoinColumns = @JoinColumn(name = "caseID")  // Foreign key referring to CrimeCase
+            name = "crime_case_criminal", // Join table that will be auto-created
+            joinColumns = @JoinColumn(name = "criminal_id", referencedColumnName = "personid"), // uses id from Criminal (inherited from Person)
+            inverseJoinColumns = @JoinColumn(name = "case_id") // uses id from CrimeCase
     )
-    @Getter
-    @Setter
     private Set<CrimeCase> cases;
 
 
     @Enumerated(EnumType.STRING)
-    @Getter
-    @Setter
     private CrimeType crimeType;
     protected String currentStatus;
      protected String reputation;
      protected String nationality;
+
+     @Override
+     public void displayDetails(){
+         super.displayDetails();
+         System.out.println("Crime Type: "+crimeType);
+         System.out.println("Reputation: "+reputation);
+         System.out.println("Nationality: "+nationality);
+         System.out.println("Status: "+currentStatus);
+     }
 }
 

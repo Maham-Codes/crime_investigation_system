@@ -1,13 +1,23 @@
 package com.crimeinvestigation.system.model;
 import com.crimeinvestigation.system.enums.CrimeType;
 import jakarta.persistence.*;
+import lombok.*;
 
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "investigator")
+@PrimaryKeyJoinColumn(name = "personID")
 public class Investigator extends Person {
     protected String band;
     protected int NoOfCurrentCases;
     protected int solvedCases;
+    protected String workTiming;
+    protected int no_of_current_cases;
+    protected int solved_cases;
     private String role = "INVESTIGATOR";
 
     @Column(unique = true)
@@ -18,29 +28,16 @@ public class Investigator extends Person {
 
     private String password;
 
-    public Investigator(String name,String FatherName,String contactNumber,String DOB, String Occupation,String CNIC,int PersonID,String Gender,String rank,int NoOfCurrentCases,int solvedCases)
-    {
-        super(name,FatherName,contactNumber,DOB,Occupation,CNIC,PersonID,Gender);
-this.band =rank;
-this.NoOfCurrentCases=NoOfCurrentCases;
-this.solvedCases=solvedCases;
+    @Override
+    public void displayDetails(){
+        super.displayDetails();
+        System.out.println("Role: " + role);
+        System.out.println("Email: " + email);
+        System.out.println("Specialization: " + specialization);
+        System.out.println("No of Current Cases: " + no_of_current_cases);
+        System.out.println("Solved Cases: " + solved_cases);
+        System.out.println("Work Timing: " + workTiming);
+        System.out.println("No of Current Cases: " + no_of_current_cases);
+        System.out.println("Solved Cases: " + solved_cases);
     }
-
-    public Investigator(){}
-
-    public void setBand(String band){ this.band = band;}
-    public String getBand(){ return band;}
-    public void setNoOfCurrentCases(int NoOfCurrentCases){ this.NoOfCurrentCases=NoOfCurrentCases;}
-    public int getNoOfCurrentCases(){ return NoOfCurrentCases;}
-    public void setSolvedCases(int solvedCases){ this.solvedCases=solvedCases;}
-    public int getSolvedCases(){ return solvedCases;}
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
-
-    public CrimeType getSpecialization() { return specialization; }
-    public void setSpecialization(CrimeType specialization) { this.specialization = specialization; }
-
 }

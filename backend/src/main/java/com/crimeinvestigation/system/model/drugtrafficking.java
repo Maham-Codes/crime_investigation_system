@@ -10,6 +10,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "drugtrafficking")
 @PrimaryKeyJoinColumn(name = "caseID")
 public class drugtrafficking extends CrimeCase{
     private String drugType;

@@ -15,6 +15,9 @@ import lombok.*;
         private String region_area,helplinenumber,helplinetype;
 
         public void DisplayInfo() {
+            System.out.println(helplinenumber);
+            System.out.println(helplinetype);
+            System.out.println(region_area);
         }
 
 }
