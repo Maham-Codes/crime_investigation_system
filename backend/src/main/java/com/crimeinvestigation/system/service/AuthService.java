@@ -25,13 +25,13 @@ public class AuthService {
     public Investigator registerInvestigator(InvestigatorSignupRequest request) {
         Investigator inv = new Investigator();
         inv.setName(request.name);
-        inv.setFather_Name(request.fatherName);
+        inv.setFather_name(request.fatherName);
         inv.setEmail(request.email);
-        //inv.setContactNumber(request.contactNumber);
-        //inv.setDOB(request.dob);
+        inv.setContact_number(request.contactNumber);
+        inv.setDob(request.dob);
         inv.setOccupation(request.occupation);
-        //inv.setCNIC(request.cnic);
-        //inv.setPersonID(request.personId);
+        inv.setCnic(request.cnic);
+        inv.setPersonid(request.personId);
         inv.setGender(String.valueOf(request.inv_gender));
         inv.setBand(request.rank);
         inv.setNoOfCurrentCases(request.noOfCurrentCases);
@@ -59,15 +59,6 @@ public class AuthService {
         user.setGender(String.valueOf(request.user_gender));
         user.setEmail(request.email);
         user.setPassword(request.password);
-        //user.setRole(request.role);
-//        if(request.role.equals(Role.EYEWITNESS)) {
-//            user.setUserType(UserType.Eyewtiness);
-//        }
-//        else if(request.role.equals(Role.INVESTIGATOR)) {
-//            user.setUserType(Usr);
-//        }
-
-
         user.setRole(request.role);
         return userRepo.save(user);
     }
