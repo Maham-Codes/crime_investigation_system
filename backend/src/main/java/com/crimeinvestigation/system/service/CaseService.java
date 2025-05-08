@@ -18,7 +18,7 @@ public class CaseService {
         Optional<CrimeCase> optionalCase = crimeCaseRepo.findById(caseId);
         if (optionalCase.isPresent()) {
             CrimeCase crimeCase = optionalCase.get();
-            crimeCase.setStatus(newStatus);
+            crimeCase.setCaseStatus(newStatus);
             return crimeCaseRepo.save(crimeCase);
         } else {
             throw new RuntimeException("Case not found");
