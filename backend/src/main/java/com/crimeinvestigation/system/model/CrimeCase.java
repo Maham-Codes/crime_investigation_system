@@ -4,17 +4,13 @@ import com.crimeinvestigation.system.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
-import java.util.Set;
-
 
 @Entity
 @Table(name = "crime_case")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-public abstract class CrimeCase {
-
+public class CrimeCase {
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "caseID")
@@ -25,25 +21,32 @@ public abstract class CrimeCase {
 
     @ManyToOne
     @JoinColumn(name = "typeID")
+    @Setter
+    @Getter
     protected User userID;
 
     protected int evidenceID;
 
     @ManyToOne
     @JoinColumn(name = "typeID")
+    @Setter
+    @Getter
     private CrimeType typeID;
 
     @Enumerated(EnumType.STRING)
+    @Getter
+    @Setter
     private CaseStatus caseStatus;
 
     @ManyToOne
+    @Setter
+    @Getter
     private Investigator assignedInvestigator;
-
-    @ManyToMany(mappedBy = "cases")
-    private Set<Criminal> criminals;
 
     @OneToOne
     @JoinColumn(name = "investigatorID")
+    @Setter
+    @Getter
     private Investigator investigatorID;
 
     public void displayDetails() {}
