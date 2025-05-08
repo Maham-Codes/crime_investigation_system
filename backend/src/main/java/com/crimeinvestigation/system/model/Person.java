@@ -37,6 +37,9 @@ class Person {
         }
     }
 
+
+
+
     public void displayDetails(){
         System.out.println("Name: " + getName());
         System.out.println("Father: " + getFather_name());
