@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "crime_case")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class CrimeCase {
@@ -21,32 +23,22 @@ public class CrimeCase {
 
     @ManyToOne
     @JoinColumn(name = "typeID")
-    @Setter
-    @Getter
     protected User userID;
 
     protected int evidenceID;
 
     @ManyToOne
     @JoinColumn(name = "typeID")
-    @Setter
-    @Getter
     private CrimeType typeID;
 
     @Enumerated(EnumType.STRING)
-    @Getter
-    @Setter
     private CaseStatus caseStatus;
 
     @ManyToOne
-    @Setter
-    @Getter
     private Investigator assignedInvestigator;
 
     @OneToOne
     @JoinColumn(name = "investigatorID")
-    @Setter
-    @Getter
     private Investigator investigatorID;
 
     public void displayDetails() {}
