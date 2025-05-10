@@ -10,8 +10,8 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("drugtrafficking")
-public class drugtrafficking extends CrimeCase{
+@DiscriminatorValue("Drugtrafficking")
+public class Drugtrafficking extends CrimeCase{
     private String drugType;
     private String quantity;
     private String storageMethod;

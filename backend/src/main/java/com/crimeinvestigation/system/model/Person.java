@@ -24,13 +24,13 @@ public class Person {
     protected String name;
     protected String father_name;
     protected String contact_number;
-    protected String dob;
+    protected LocalDate dob;
     protected String occupation;
     protected String cnic;
     protected String gender;
 
 
-    public int getAge() {
+    /*public int getAge() {
         try {
             LocalDate dob = LocalDate.parse(getDob());
             LocalDate today = LocalDate.now();
@@ -39,7 +39,7 @@ public class Person {
             System.out.println("Invalid date format in DOB. Expected format: yyyy-MM-dd");
             return 0;
         }
-    }
+    }*/
 
 
 

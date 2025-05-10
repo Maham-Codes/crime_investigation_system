@@ -16,9 +16,9 @@ public class TrackingStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int trackingID;
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "caseID", referencedColumnName = "caseID")
-    private CrimeCase caseID;*/
+    private CrimeCase caseID;
 
     @Enumerated(EnumType.STRING)
     @Getter
