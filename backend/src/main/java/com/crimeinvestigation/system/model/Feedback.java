@@ -16,13 +16,14 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int feedbackID;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "userid")
-    private User user;
+    private User user;*/
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "caseid")
-    private CrimeCase crimeCase;
+    private CrimeCase crimeCase;*/
+
     private int rating;
     private String comments;
     private LocalDate feedbackDate;

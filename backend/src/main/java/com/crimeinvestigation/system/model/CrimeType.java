@@ -8,13 +8,16 @@ import lombok.*;
 @Table(name = "crimetype")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CrimeType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int typeID;
 
-    protected String crimeName;
+    @Column(name = "crimeName")
+    protected String name;
 
 
 }

@@ -4,14 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "harassment")
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@PrimaryKeyJoinColumn(name = "caseID")
+@DiscriminatorValue("Harassment")
 public class Harassment extends CrimeCase {
 
     protected String harassmentType;

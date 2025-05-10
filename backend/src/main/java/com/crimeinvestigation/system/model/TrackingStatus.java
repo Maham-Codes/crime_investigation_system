@@ -16,9 +16,9 @@ public class TrackingStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int trackingID;
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "caseID", referencedColumnName = "caseID")
-    private CrimeCase caseID;
+    private CrimeCase caseID;*/
 
     @Enumerated(EnumType.STRING)
     @Getter
@@ -27,7 +27,7 @@ public class TrackingStatus {
 
     public void displayStatus() {
         System.out.println("Tracking ID: " + trackingID);
-        System.out.println("Case ID: " + caseID);
+        //System.out.println("Case ID: " + caseID);
         System.out.println("Status: " + updateStatus);
     }
     /*public void updateStatus(String newStatus, String comments) {

@@ -10,8 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "rape")
-@PrimaryKeyJoinColumn(name = "caseID")
+@DiscriminatorValue("Rape")
 public class SH_and_Rape extends Harassment {
     protected LocalDateTime Date_Time;
     protected String rapeType;

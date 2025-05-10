@@ -1,6 +1,6 @@
 package com.crimeinvestigation.system.enums;
 
-public enum CrimeType {
+public enum Crimetypes {
     MURDER,
     THEFT,
     CYBERCRIME,

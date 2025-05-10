@@ -2,16 +2,20 @@ package com.crimeinvestigation.system.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+
+
 import java.time.LocalDate;
 import java.time.Period;
 
-@Inheritance(strategy = InheritanceType.JOINED)
+
 @Table(name = "person")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)// Use SINGLE_TABLE for Person hierarchy
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

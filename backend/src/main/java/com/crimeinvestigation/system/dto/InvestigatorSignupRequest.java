@@ -1,6 +1,6 @@
 package com.crimeinvestigation.system.dto;
 
-import com.crimeinvestigation.system.enums.CrimeType;
+import com.crimeinvestigation.system.enums.Crimetypes;
 import com.crimeinvestigation.system.enums.Gender;
 
 
@@ -18,5 +18,5 @@ public class InvestigatorSignupRequest {
     public int solvedCases;
     public String email;
     public String password;
-    public CrimeType specialization;
+    public Crimetypes specialization;
 }

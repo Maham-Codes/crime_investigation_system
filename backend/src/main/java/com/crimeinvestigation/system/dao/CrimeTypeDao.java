@@ -55,7 +55,7 @@ public class CrimeTypeDao {
             while (rs.next()) {
                 CrimeType crimeType = new CrimeType();
                 crimeType.setTypeID(rs.getInt("typeID"));
-                crimeType.setCrimeName(rs.getString("crimeName"));
+                crimeType.setName(rs.getString("name"));
                 crimeTypes.add(crimeType);
             }
 

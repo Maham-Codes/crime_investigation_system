@@ -9,8 +9,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "theft")
-@PrimaryKeyJoinColumn(name = "caseID")
+@DiscriminatorValue("Theft")
 public class Theft extends CrimeCase {
 
     private String stolenItemDescription;

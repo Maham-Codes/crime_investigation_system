@@ -11,8 +11,7 @@ import java.time.LocalTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "murder")
-@PrimaryKeyJoinColumn(name = "caseID")
+@DiscriminatorValue("Murder")
 public class Murder extends CrimeCase {
 
     private LocalTime timeOfDeath;

@@ -15,20 +15,18 @@ public class Evidence {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int evidenceID;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "userID")
-    private User userID;
+    private User userID;*/
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "caseID")
-    private CrimeCase caseID;
+    private CrimeCase caseID;*/
 
     private String evidenceType;
 
     public void displayDetails() {
         System.out.println("Evidence ID: " + evidenceID);
-        System.out.println("Case ID: " + caseID);
-        System.out.println("User ID: " + userID);
         System.out.println("Evidence Type: " + evidenceType);
     }
 }

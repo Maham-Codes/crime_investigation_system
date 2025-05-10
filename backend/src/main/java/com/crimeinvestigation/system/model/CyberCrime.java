@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@PrimaryKeyJoinColumn(name = "caseID")
+@DiscriminatorValue("CyberCrime")
 public class CyberCrime extends CrimeCase {
 
 

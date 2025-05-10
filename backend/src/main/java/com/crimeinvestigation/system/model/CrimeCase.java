@@ -6,11 +6,13 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "crime_case")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "crime_case")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "case_type", discriminatorType = DiscriminatorType.STRING)
 public class CrimeCase {
     @Getter
     @Id
@@ -21,15 +23,15 @@ public class CrimeCase {
     protected String location;
     protected String description;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "typeID")
-    protected User userID;
+    protected User userID;*/
 
     protected int evidenceID;
 
     @ManyToOne
     @JoinColumn(name = "typeID")
-    private CrimeType typeID;
+    private CrimeType crimeType;
 
     @Enumerated(EnumType.STRING)
     private CaseStatus caseStatus;

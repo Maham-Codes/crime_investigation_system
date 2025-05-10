@@ -8,8 +8,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "kidnapping")
-@PrimaryKeyJoinColumn(name = "caseID")
+@DiscriminatorValue("Kidnapping")
 public class Kidnapping extends CrimeCase {
 
     private String relationToVictim;

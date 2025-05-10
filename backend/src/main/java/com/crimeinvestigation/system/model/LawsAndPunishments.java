@@ -10,7 +10,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public final class LawsAndPunishments {
+public class LawsAndPunishments {
     @Id
     private  String lawID;
     private  String crime_type;

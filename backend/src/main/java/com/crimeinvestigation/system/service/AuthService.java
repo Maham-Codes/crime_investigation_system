@@ -34,8 +34,8 @@ public class AuthService {
         inv.setPersonid(request.personId);
         inv.setGender(String.valueOf(request.inv_gender));
         inv.setBand(request.rank);
-        inv.setNoOfCurrentCases(request.noOfCurrentCases);
-        inv.setSolvedCases(request.solvedCases);
+        inv.setNo_of_current_cases(request.noOfCurrentCases);
+        inv.setSolved_cases(request.solvedCases);
         inv.setEmail(request.email);
         inv.setPassword(request.password);  // 🔐 In production, encrypt this!
         inv.setSpecialization(request.specialization);

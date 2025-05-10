@@ -11,10 +11,9 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user")
-@PrimaryKeyJoinColumn(name = "personID")
+@DiscriminatorValue("User")
 public class User extends Person{
-    protected String Address;
+    protected String address;
 
     @Column(unique = true)
     private String email;
@@ -28,7 +27,7 @@ public class User extends Person{
     @Override
     public void displayDetails(){
         super.displayDetails();
-        System.out.println("Address: " + Address);
+        System.out.println("Address: " + address);
         System.out.println("Email: " + email);
         System.out.println("UserType: " + role);
     }

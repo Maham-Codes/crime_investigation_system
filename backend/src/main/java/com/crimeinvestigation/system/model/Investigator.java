@@ -1,5 +1,5 @@
 package com.crimeinvestigation.system.model;
-import com.crimeinvestigation.system.enums.CrimeType;
+import com.crimeinvestigation.system.enums.Crimetypes;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,12 +9,10 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "investigator")
-@PrimaryKeyJoinColumn(name = "personID")
+@DiscriminatorValue("Investigator")
 public class Investigator extends Person {
     protected String band;
-    protected int NoOfCurrentCases;
-    protected int solvedCases;
+
     protected String workTiming;
     protected int no_of_current_cases;
     protected int solved_cases;
@@ -24,7 +22,7 @@ public class Investigator extends Person {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private CrimeType specialization;
+    private Crimetypes specialization;
 
     private String password;
 
