@@ -17,11 +17,11 @@ public class Feedback {
     private int feedbackID;
 
     /*@ManyToOne
-    @JoinColumn(name = "userid")
+    @JoinColumn(crimeName = "userid")
     private User user;*/
 
     /*@ManyToOne
-    @JoinColumn(name = "caseid")
+    @JoinColumn(crimeName = "caseid")
     private CrimeCase crimeCase;*/
 
     private int rating;

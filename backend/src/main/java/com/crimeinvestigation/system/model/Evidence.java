@@ -16,11 +16,11 @@ public class Evidence {
     private int evidenceID;
 
     /*@ManyToOne
-    @JoinColumn(name = "userID")
+    @JoinColumn(crimeName = "userID")
     private User userID;*/
 
     /*@ManyToOne
-    @JoinColumn(name = "caseID")
+    @JoinColumn(crimeName = "caseID")
     private CrimeCase caseID;*/
 
     private String evidenceType;

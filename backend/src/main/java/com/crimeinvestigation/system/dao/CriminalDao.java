@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class CriminalDao {
     public void getActiveCriminalCases() {
         //subquery using 2 joins
-        //gives criminalID,crimeType,case description, investigators first and last name for convicted criminals
+        //gives criminalID,crimeType,case description, investigators first and last crimeName for convicted criminals
         String sql = "SELECT " +
                 "c.criminalID, " +
                 "c.crimeType, " +

@@ -16,6 +16,6 @@ public class CrimeTypeService {
     public void displayAllCrimeTypes() {
         List<CrimeType> types = crimeTypeRepository.findAll(); // Use findAll instead of getAllCrimeTypes
         System.out.println("=== Crime Types in Database ===");
-        types.forEach(type -> System.out.println("Type ID: " + type.getTypeID() + ", Crime Name: " + type.getName()));
+        types.forEach(type -> System.out.println("Type ID: " + type.getTypeID() + ", Crime Name: " + type.getCrimeName()));
     }
 }

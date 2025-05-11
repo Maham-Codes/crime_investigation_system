@@ -18,8 +18,8 @@
 //
 //            while (rs.next()) {
 //                int id = rs.getInt("typeID");
-//                String name = rs.getString("crimeName");
-//                System.out.println("Type ID: " + id + ", Crime Name: " + name);
+//                String crimeName = rs.getString("crimeName");
+//                System.out.println("Type ID: " + id + ", Crime Name: " + crimeName);
 //            }
 //
 //        } catch (SQLException e) {
@@ -41,6 +41,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Repository
 public class CrimeTypeDao {
 
@@ -55,7 +57,8 @@ public class CrimeTypeDao {
             while (rs.next()) {
                 CrimeType crimeType = new CrimeType();
                 crimeType.setTypeID(rs.getInt("typeID"));
-                crimeType.setName(rs.getString("crimeName"));
+                crimeType.setCrimeName(rs.getString("crimeName"));
+                System.out.println("DEBUG — ID: " + crimeType.getTypeID() + ", Name: " + crimeType.getCrimeName());
                 crimeTypes.add(crimeType);
             }
 
