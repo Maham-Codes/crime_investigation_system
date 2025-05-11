@@ -17,7 +17,7 @@ public class CrimeType {
     protected int typeID;
 
     @Column(name = "crimeName")
-    protected String name;
+    protected String crimeName;
 
 
 }

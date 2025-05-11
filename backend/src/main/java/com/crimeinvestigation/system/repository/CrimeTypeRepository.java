@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CrimeTypeRepository extends JpaRepository<CrimeType, Long> {
-    // Find crime types by name or description
-    CrimeType findByName(String name); // Find a crime type by its name
+    // Find crime types by crimeName or description
+   // CrimeType findByName(String name); // Find a crime type by its crimeName
 }

@@ -15,9 +15,9 @@ public class Criminal extends Person {
 
     /*@ManyToMany
     @JoinTable(
-            name = "crime_case_criminal", // Join table that will be auto-created
-            joinColumns = @JoinColumn(name = "criminal_id", referencedColumnName = "personid"), // uses id from Criminal (inherited from Person)
-            inverseJoinColumns = @JoinColumn(name = "case_id") // uses id from CrimeCase
+            crimeName = "crime_case_criminal", // Join table that will be auto-created
+            joinColumns = @JoinColumn(crimeName = "criminal_id", referencedColumnName = "personid"), // uses id from Criminal (inherited from Person)
+            inverseJoinColumns = @JoinColumn(crimeName = "case_id") // uses id from CrimeCase
     )
     private Set<CrimeCase> cases;*/
 
