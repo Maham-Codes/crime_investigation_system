@@ -11,6 +11,7 @@ import com.crimeinvestigation.system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -28,7 +29,7 @@ public class AuthService {
         inv.setFather_name(request.fatherName);
         inv.setEmail(request.email);
         inv.setContact_number(request.contactNumber);
-        inv.setDob(request.dob);
+        inv.setDob(LocalDate.parse(request.dob));
         inv.setOccupation(request.occupation);
         inv.setCnic(request.cnic);
         inv.setPersonid(request.personId);
@@ -50,7 +51,7 @@ public class AuthService {
        // user.setContactNumber(request.contactNumber);
         user.setContact_number(request.contactNumber);
        // user.setDOB(request.dob);
-        user.setDob(request.dob);
+        user.setDob(LocalDate.parse(request.dob));
         user.setOccupation(request.occupation);
        // user.setCNIC(request.CNICNumber);
         user.setCnic(request.CNICNumber);

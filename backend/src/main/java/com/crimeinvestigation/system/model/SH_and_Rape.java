@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @DiscriminatorValue("Rape")
 public class SH_and_Rape extends Harassment {
-    protected LocalDateTime Date_Time;
+    protected LocalDateTime dateTime;
     protected String rapeType;
 
 
@@ -21,6 +21,6 @@ public class SH_and_Rape extends Harassment {
     public void displayDetails() {
         super.displayDetails(); // Call to CrimeCase's displayDetails
         System.out.println("Rape Type: " + rapeType);
-        System.out.println("Date Time: " + Date_Time);
+        System.out.println("Date Time: " + dateTime);
     }
 }

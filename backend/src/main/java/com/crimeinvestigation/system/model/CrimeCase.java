@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Table(name = "crime_case")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "case_type", discriminatorType = DiscriminatorType.STRING)
+//@DiscriminatorColumn(name = "case_type", discriminatorType = DiscriminatorType.STRING)
 public class CrimeCase {
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "caseID")
     private int caseID;
-    protected LocalDateTime date_time;
+    protected LocalDateTime dateTime;
     protected String location;
     protected String description;
 
