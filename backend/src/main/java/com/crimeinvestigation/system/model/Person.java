@@ -17,15 +17,21 @@ import java.time.Period;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)// Use SINGLE_TABLE for Person hierarchy
+//@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)// Use SINGLE_TABLE for Person hierarchy
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id")
-    protected int personid;
+    protected Long personid;
 
-    @Column(name = "name")
-    protected String name;
+    @Column(name = "first_name")
+    protected String firstName;
+
+    @Column(name = "mid_name")
+    protected String midName;
+
+    @Column(name = "last_name")
+    protected String lastName;
 
     @Column(name = "father_name")
     protected String father_name;
@@ -65,7 +71,9 @@ public class Person {
 
 
     public void displayDetails(){
-        System.out.println("Name: " + getName());
+        System.out.println("Name: " + getFirstName());
+        System.out.println("MID: " + getMidName());
+        System.out.println("Last Name: " + getLastName());
         System.out.println("Father: " + getFather_name());
         System.out.println("Contact: " + getContact_number());
         System.out.println("Occupation: " + getOccupation());

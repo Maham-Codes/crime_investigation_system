@@ -5,7 +5,7 @@ import lombok.*;
 
 
 @Entity
-@Table(name = "crimetype")
+@Table(name = "crime_type")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -14,8 +14,8 @@ public class CrimeType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "type_id")
-    protected int typeID;
+    @Column(name = "crime_type_id")
+    protected Long typeID;
 
     @Column(name = "crime_name")
     protected String crimeName;

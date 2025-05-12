@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.model;
 
+import com.crimeinvestigation.system.enums.CaseStatus;
 import com.crimeinvestigation.system.enums.Crimetypes;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,9 +11,8 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("Criminal")
+@DiscriminatorValue("criminal")
 public class Criminal extends Person {
-
     /*@ManyToMany
     @JoinTable(
             crimeName = "crime_case_criminal", // Join table that will be auto-created
@@ -23,16 +23,17 @@ public class Criminal extends Person {
 
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "crime_type")
+    //@Column(name = "crime_type")
     private Crimetypes crimetypes;
 
-    @Column(name = "current_status")
-    protected String currentStatus;
+    @Enumerated(EnumType.STRING)
+    //@Column(name = "current_status")
+    private CaseStatus currentStatus;
 
-    @Column(name = "reputation")
+    //@Column(name = "reputation")
     protected String reputation;
 
-    @Column(name = "nationality")
+    //@Column(name = "nationality")
     protected String nationality;
 
      @Override

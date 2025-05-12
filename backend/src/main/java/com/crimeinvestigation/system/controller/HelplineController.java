@@ -20,6 +20,6 @@ public class HelplineController {
 
     @GetMapping
     public List<Helpline> getAllHelplines() {
-        return helplineService.getAllHelplines();
+        return helplineService.getAll();
     }
 }

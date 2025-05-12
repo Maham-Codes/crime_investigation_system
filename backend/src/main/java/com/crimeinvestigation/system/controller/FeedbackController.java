@@ -21,27 +21,27 @@ public class FeedbackController {
 
     @GetMapping
     public List<Feedback> getAllFeedback() {
-        return feedbackService.getAllFeedback();
+        return feedbackService.getAll();
     }
 
     @GetMapping("/{id}")
     public Feedback getFeedbackById(@PathVariable int id) {
-        return feedbackService.getFeedbackById(id);
+        return feedbackService.getById(id);
     }
 
     @PostMapping
     public Feedback addFeedback(@RequestBody Feedback feedback) {
-        return feedbackService.addFeedback(feedback);
+        return feedbackService.add(feedback);
     }
 
     @PutMapping("/{id}")
     public Feedback updateFeedback(@PathVariable int id, @RequestBody Feedback feedback) {
-        return feedbackService.updateFeedback(id, feedback);
+        return feedbackService.update(id, feedback);
     }
 
     @DeleteMapping("/{id}")
     public String deleteFeedback(@PathVariable int id) {
-        boolean deleted = feedbackService.deleteFeedback(id);
+        boolean deleted = feedbackService.delete(id);
         return deleted ? "Feedback deleted successfully." : "Feedback not found.";
     }
 }

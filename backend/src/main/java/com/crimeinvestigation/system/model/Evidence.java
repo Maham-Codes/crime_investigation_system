@@ -14,7 +14,7 @@ public class Evidence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "evidence_id")
-    private int evidenceID;
+    private Long evidenceID;
 
     /*@ManyToOne
     @JoinColumn(crimeName = "userID")

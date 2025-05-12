@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
-
 @Entity
 @Getter
 @Setter
@@ -16,9 +15,9 @@ public class TrackingStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tracking_id")
-    private int trackingID;
+    private Long trackingID;
     @ManyToOne
-    @JoinColumn(name = "caseID", referencedColumnName = "caseID")
+    @JoinColumn(name = "case_id", referencedColumnName = "case_id")
     private CrimeCase caseID;
 
     @Enumerated(EnumType.STRING)

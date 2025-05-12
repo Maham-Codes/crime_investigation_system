@@ -20,6 +20,6 @@ public class LawsAndPunishmentsController {
 
     @GetMapping
     public List<LawsAndPunishments> getAllLaws() {
-        return service.getAllLaws();
+        return service.getAll();
     }
 }

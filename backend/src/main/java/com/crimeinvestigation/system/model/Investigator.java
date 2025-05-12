@@ -11,16 +11,16 @@ import lombok.*;
 @AllArgsConstructor
 @DiscriminatorValue("Investigator")
 public class Investigator extends Person {
-    @Column(name = "band")
+    //@Column(name = "band")
     protected String band;
 
-    @Column(name = "work_timing")
+    //@Column(name = "work_timing")
     protected String workTiming;
 
-    @Column(name = "no_of_current_cases")
+    //@Column(name = "no_of_current_cases")
     protected int no_of_current_cases;
 
-    @Column(name = "solved_cases")
+    //@Column(name = "solved_cases")
     protected int solved_cases;
 
 

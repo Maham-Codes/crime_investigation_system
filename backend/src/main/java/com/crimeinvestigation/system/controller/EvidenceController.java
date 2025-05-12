@@ -25,14 +25,14 @@ public class EvidenceController {
         return evidenceRepository.save(evidence);
     }
 
-    @PutMapping("/{id}")
-    public Evidence updateEvidence(@PathVariable int id, @RequestBody Evidence evidence) {
+    /*@PutMapping("/{id}")
+    public Evidence updateEvidence(@PathVariable long id, @RequestBody Evidence evidence) {
         if (evidenceRepository.existsById(id)) {
             evidence.setEvidenceID(id);
             return evidenceRepository.save(evidence);
         }
         return null; // Handle the case when the evidence is not found
-    }
+    }*/
 
     @DeleteMapping("/{id}")
     public String deleteEvidence(@PathVariable int id) {

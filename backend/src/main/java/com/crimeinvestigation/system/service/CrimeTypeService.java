@@ -23,8 +23,8 @@ public class CrimeTypeService {
                 .orElseThrow(() -> new ResourceNotFoundException("CrimeType not found with id: " + id));
     }
 
-    public CrimeType save(CrimeType obj) {
-        return crimeTypeRepository.save(obj);
+    public CrimeType save(CrimeType crimeType) {
+        return crimeTypeRepository.save(crimeType);
     }
 
     public void delete(Long id) {
@@ -34,9 +34,9 @@ public class CrimeTypeService {
         crimeTypeRepository.deleteById(id);
     }
 
-    public CrimeType update(Long id, CrimeType updatedObj) {
+    public CrimeType update(Long id, CrimeType updated) {
         CrimeType existing = getById(id);
-        // TODO: update fields here
+        existing.setCrimeName(updated.getCrimeName());
         return crimeTypeRepository.save(existing);
     }
 
