@@ -22,8 +22,8 @@ public class CrimeInvestigationSystemApplication implements CommandLineRunner {
     private CrimeCaseDao crimeCaseDao;
 
 
-   /* public static void main(String[] args) {
-        SpringApplication.run(CrimeInvestigationApplication.class, args);
+    public static void main(String[] args) {
+        //SpringApplication.run(CrimeInvestigationApplication.class, args);
     }
 
 */
