@@ -48,7 +48,7 @@ public class CrimeTypeDao {
 
     public List<CrimeType> getAllCrimeTypes() {
         List<CrimeType> crimeTypes = new ArrayList<>();
-        String sql = "SELECT * FROM crimetype  ;";
+        String sql = "SELECT * FROM crime_type  ;";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class CrimeTypeDao {
                 System.out.println("Type ID: " + id + ", Crime Name: " + name);
 
                 CrimeType crimeType = new CrimeType();
-                crimeType.setTypeID(rs.getInt("typeID"));
+                crimeType.setTypeID(rs.getLong("typeID"));
                 crimeType.setCrimeName(rs.getString("crimeName"));
                 crimeTypes.add(crimeType);
             }

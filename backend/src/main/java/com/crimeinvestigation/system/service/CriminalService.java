@@ -19,7 +19,7 @@ public class CriminalService {
     }
 
     public Criminal getById(Long id) {
-        return criminalRepository.findById(id)
+        return criminalRepository.findById(Math.toIntExact(id))
                 .orElseThrow(() -> new ResourceNotFoundException("Criminal not found with id: " + id));
     }
 
@@ -29,11 +29,12 @@ public class CriminalService {
     }
 
     public void delete(Long id) {
-        if (!criminalRepository.existsById(id)) {
+
+        if (!criminalRepository.existsById(Math.toIntExact(id))) {
             throw new ResourceNotFoundException("Criminal not found with id: " + id);
         }
         // TODO: Check if the criminal is linked to active cases before deleting
-        criminalRepository.deleteById(id);
+        criminalRepository.deleteById(Math.toIntExact(id));
     }
 
     public Criminal update(Long id, Criminal updated) {

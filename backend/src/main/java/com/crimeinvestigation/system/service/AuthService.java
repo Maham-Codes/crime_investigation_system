@@ -25,14 +25,14 @@ public class AuthService {
 
     public Investigator registerInvestigator(InvestigatorSignupRequest request) {
         Investigator inv = new Investigator();
-        inv.setName(request.name);
+        inv.setFirstName(request.name);
         inv.setFather_name(request.fatherName);
         inv.setEmail(request.email);
         inv.setContact_number(request.contactNumber);
         inv.setDob(LocalDate.parse(request.dob));
         inv.setOccupation(request.occupation);
         inv.setCnic(request.cnic);
-        inv.setPersonid(request.personId);
+        inv.setPersonid((long) request.personId);
         inv.setGender(String.valueOf(request.inv_gender));
         inv.setBand(request.rank);
         inv.setNo_of_current_cases(request.noOfCurrentCases);
@@ -45,7 +45,7 @@ public class AuthService {
 
     public User registerUser(UserSignupRequest request) {
         User user = new User();
-        user.setName(request.fullName);
+        user.setFirstName(request.fullName);
       //  user.setFatherName(request.fatherName);
         user.setFather_name(request.fatherName);
        // user.setContactNumber(request.contactNumber);
@@ -56,7 +56,7 @@ public class AuthService {
        // user.setCNIC(request.CNICNumber);
         user.setCnic(request.CNICNumber);
        // user.setPersonID(request.personId);
-        user.setPersonid(request.personId);
+        user.setPersonid((long) request.personId);
         user.setGender(String.valueOf(request.user_gender));
         user.setEmail(request.email);
         user.setPassword(request.password);
