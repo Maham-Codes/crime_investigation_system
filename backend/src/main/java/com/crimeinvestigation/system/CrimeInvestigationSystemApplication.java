@@ -23,7 +23,7 @@ public class CrimeInvestigationSystemApplication implements CommandLineRunner {
 
 
     public static void main(String[] args) {
-        //SpringApplication.run(CrimeInvestigationApplication.class, args);
+        SpringApplication.run(CrimeInvestigationSystemApplication.class, args);
     }
 
 */
