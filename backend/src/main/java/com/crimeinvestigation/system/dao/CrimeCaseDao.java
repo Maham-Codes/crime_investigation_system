@@ -15,16 +15,17 @@ public class CrimeCaseDao {
 
     public List<Map<String, Object>> getClosedCases() {
         String sql = """
-                SELECT cc.caseID, cc.caseType, cc.caseStatus
-                FROM crime_case cc
-                WHERE (
-                    SELECT t.updateStatus
-                    FROM tracking_status t
-                    WHERE t.caseID = cc.caseID
-                    ORDER BY t.trackingID DESC
-                    LIMIT 1
-                ) LIKE '%Closed%'
-                """;
+        SELECT cc.caseID, cc.case_name, cc.case_status
+        FROM crime_case cc
+        JOIN tracking_status t ON t.caseID = cc.caseID
+        WHERE t.trackingID = (
+            SELECT MAX(ts.trackingID)
+            FROM tracking_status ts
+            WHERE ts.caseID = cc.caseID
+        )
+        AND t.updateStatus LIKE '%Closed%'
+        """;
+
 
         return jdbcTemplate.queryForList(sql);
     }

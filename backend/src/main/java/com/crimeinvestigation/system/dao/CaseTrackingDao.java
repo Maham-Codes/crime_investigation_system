@@ -8,18 +8,15 @@ import java.sql.SQLException;
 
 public class CaseTrackingDao {
     public void getCasesWithAboveAverageUpdates() {
-        //Show me all cases that have more updates than the average number of updates per case
-        String sql = "SELECT " +
-                "cc.caseID, " +
-                "cc.caseType, " +
-                "COUNT(ts.trackingID) AS totalUpdates " +
+        // Show me all cases that have more updates than the average number of updates per case
+        String sql = "SELECT cc.caseID, cc.caseStatus, COUNT(ts.trackingID) AS totalUpdates " +
                 "FROM crime_case cc " +
                 "JOIN tracking_status ts ON cc.caseID = ts.caseID " +
-                "GROUP BY cc.caseID, cc.caseType " +
-                "HAVING COUNT(ts.trackingID) > (" +
-                "   SELECT AVG(updateCount) FROM (" +
-                "       SELECT COUNT(trackingID) AS updateCount FROM tracking_status GROUP BY caseID" +
-                "   ) AS avgUpdates" +
+                "GROUP BY cc.caseID, cc.caseStatus " +
+                "HAVING COUNT(ts.trackingID) > ( " +
+                "  SELECT AVG(updateCount) FROM ( " +
+                "    SELECT COUNT(trackingID) AS updateCount FROM tracking_status GROUP BY caseID " +
+                "  ) AS avgUpdates " +
                 ")";
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -30,10 +27,10 @@ public class CaseTrackingDao {
 
             while (rs.next()) {
                 int caseId = rs.getInt("caseID");
-                String caseType = rs.getString("caseType");
+                String caseStatus = rs.getString("caseStatus"); // Fixed from caseType ➜ caseStatus
                 int totalUpdates = rs.getInt("totalUpdates");
 
-                System.out.println("Case ID: " + caseId + ", Case Type: " + caseType +
+                System.out.println("Case ID: " + caseId + ", Case Status: " + caseStatus +
                         ", Total Updates: " + totalUpdates);
             }
 
