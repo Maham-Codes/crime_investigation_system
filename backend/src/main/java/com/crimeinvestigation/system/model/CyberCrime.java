@@ -16,22 +16,22 @@ public class CyberCrime extends CrimeCase {
 
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "cyber_type")
+    //@Column(name = "cyber_type")
     private CyberType cyberType;
 
-    @Column(name = "affected_platform")
+    //@Column(name = "affected_platform")
     private String affectedPlatform;
 
-    @Column(name = "target_system")
+    //@Column(name = "target_system")
     private String targetSystem;
 
-    @Column(name = "files_accessed")
+    //@Column(name = "files_accessed")
     private String filesAccessed;
 
-    @Column(name = "number_of_incidents")
+    //@Column(name = "number_of_incidents")
     private int numberOfIncidents;
 
-    @Column(name = "amount_lost")
+    //@Column(name = "amount_lost")
     private double amountLost;
 
 

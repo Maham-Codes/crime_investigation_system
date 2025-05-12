@@ -12,16 +12,16 @@ import lombok.*;
 @DiscriminatorValue("Theft")
 public class Theft extends CrimeCase {
 
-    @Column(name = "stolen_item_description")
+    //@Column(name = "stolen_item_description")
     private String stolenItemDescription;
 
-    @Column(name = "loss_amount")
+    //@Column(name = "loss_amount")
     private double lossAmount;
 
-    @Column(name = "cctv_presence")
+    //@Column(name = "cctv_presence")
     private boolean CCTVPresence;
 
-    @Column(name = "crowd_density")
+    //@Column(name = "crowd_density")
     private int crowdDensity;
 
 

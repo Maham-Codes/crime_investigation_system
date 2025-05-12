@@ -31,11 +31,17 @@ public class KidnappingService {
         return kidnappingRepository.save(obj);
     }
 
-    public void delete(int id) {
+    public boolean delete(int id) {
         if (!kidnappingRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Kidnapping not found with id: " + id);
+            return false;
         }
         kidnappingRepository.deleteById(id);
+        return true;
+    }
+
+    public Kidnapping add(Kidnapping kidnapping) {
+        // Add any validation or default-setting logic if needed
+        return kidnappingRepository.save(kidnapping);
     }
 
     public Kidnapping update(int id, Kidnapping updatedObj) {

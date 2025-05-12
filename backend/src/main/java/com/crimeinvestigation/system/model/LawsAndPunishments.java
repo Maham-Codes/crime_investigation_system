@@ -15,7 +15,7 @@ public class LawsAndPunishments {
     @Column(name = "law_id")
     private  Long lawID;
 
-    @Column(name = "crime_type")
+    //@Column(name = "crime_type")
     private  String crime_type;
 
     @Column(name = "section_name")

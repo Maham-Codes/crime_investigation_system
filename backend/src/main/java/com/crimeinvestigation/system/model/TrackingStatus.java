@@ -17,7 +17,7 @@ public class TrackingStatus {
     @Column(name = "tracking_id")
     private Long trackingID;
     @ManyToOne
-    @JoinColumn(name = "caseID", referencedColumnName = "caseID")
+    @JoinColumn(name = "case_id", referencedColumnName = "case_id")
     private CrimeCase caseID;
 
     @Enumerated(EnumType.STRING)

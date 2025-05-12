@@ -23,17 +23,17 @@ public class Criminal extends Person {
 
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "crime_type")
+    //@Column(name = "crime_type")
     private Crimetypes crimetypes;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "current_status")
+    //@Column(name = "current_status")
     private CaseStatus currentStatus;
 
-    @Column(name = "reputation")
+    //@Column(name = "reputation")
     protected String reputation;
 
-    @Column(name = "nationality")
+    //@Column(name = "nationality")
     protected String nationality;
 
      @Override

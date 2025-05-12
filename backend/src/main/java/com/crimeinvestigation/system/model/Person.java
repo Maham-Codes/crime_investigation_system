@@ -17,7 +17,7 @@ import java.time.Period;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)// Use SINGLE_TABLE for Person hierarchy
+//@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)// Use SINGLE_TABLE for Person hierarchy
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

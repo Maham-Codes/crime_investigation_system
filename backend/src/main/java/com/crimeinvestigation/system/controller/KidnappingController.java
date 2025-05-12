@@ -21,21 +21,22 @@ public class KidnappingController {
 
     @GetMapping
     public List<Kidnapping> getAllKidnappingCases() {
-        return service.getAllKidnappingCases();
+        return service.getAll();
     }
 
     @PostMapping
     public Kidnapping addKidnappingCase(@RequestBody Kidnapping kidnapping) {
-        return service.addKidnappingCase(kidnapping);
+        return service.add(kidnapping);
     }
 
     @PutMapping("/{id}")
     public Kidnapping updateKidnappingCase(@PathVariable int id, @RequestBody Kidnapping updated) {
-        return service.updateKidnappingCase(id, updated);
+        return service.update(id, updated);
     }
 
     @DeleteMapping("/{id}")
-    public String deleteKidnappingCase(@PathVariable int id) {
-        return service.deleteKidnappingCase(id);
+    public String deleteKidnapping(@PathVariable int id) {
+        boolean deleted = service.delete(id);
+        return deleted ? "Kidnapping record deleted successfully." : "Kidnapping record not found.";
     }
 }

@@ -32,14 +32,14 @@ public class CrimeCase {
     //protected int evidenceID;
 
     @ManyToOne
-    @JoinColumn(name = "typeID")
+    @JoinColumn(name = "crime_type_id")
     private CrimeType crimeType;
 
     @Enumerated(EnumType.STRING)
     private CaseStatus caseStatus;
 
     @OneToOne
-    @JoinColumn(name = "investigatorID")
+    @JoinColumn(name = "investigator_id")
     private Investigator investigatorID;
 
     public void displayDetails() {}

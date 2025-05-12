@@ -13,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @DiscriminatorValue("User")
 public class User extends Person{
-    @Column(name = "address")
+    //@Column(name = "address")
     protected String address;
 
     @Column(unique = true)

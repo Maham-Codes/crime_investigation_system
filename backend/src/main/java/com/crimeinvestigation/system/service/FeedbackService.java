@@ -28,11 +28,17 @@ public class FeedbackService {
         return feedbackRepository.save(obj);
     }
 
-    public void delete(int id) {
+    public boolean delete(int id) {
         if (!feedbackRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Feedback not found with id: " + id);
+            return false;
         }
         feedbackRepository.deleteById(id);
+        return true;
+    }
+
+    public Feedback add(Feedback feedback) {
+        // You can add any validation or preprocessing logic here if needed
+        return feedbackRepository.save(feedback);
     }
 
     public Feedback update(int id, Feedback updatedObj) {

@@ -13,18 +13,18 @@ import lombok.*;
 @DiscriminatorValue("Harassment")
 public class Harassment extends CrimeCase {
 
-    @Column(name = "harassment_type")
+    //@Column(name = "harassment_type")
     protected String harassmentType;
 
-    @Column(name = "place_type")
+    //@Column(name = "place_type")
     protected String placeType;
 
-    @Column(name = "language_used")
+    //@Column(name = "language_used")
     protected String languageUsed;
 
-    @Column(name = "threats_invovled")
+    //@Column(name = "threats_invovled")
     protected boolean threatsInvolved;
 
-    @Column(name = "relation_to_harasser")
+    //@Column(name = "relation_to_harasser")
     protected String relationToHarasser;
 }
