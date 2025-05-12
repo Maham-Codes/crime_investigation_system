@@ -5,7 +5,7 @@ import lombok.*;
 
 
 @Entity
-@Table(name = "crime_type")
+@Table(name = "crimetype")
 @Getter
 @Setter
 @AllArgsConstructor
