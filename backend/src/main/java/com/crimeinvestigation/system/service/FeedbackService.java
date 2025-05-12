@@ -1,6 +1,7 @@
 
 package com.crimeinvestigation.system.service;
 
+import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import com.crimeinvestigation.system.model.Feedback;
 import com.crimeinvestigation.system.repository.FeedbackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,41 +12,33 @@ import java.util.List;
 @Service
 public class FeedbackService {
 
-    private final FeedbackRepository feedbackRepository;
-
     @Autowired
-    public FeedbackService(FeedbackRepository feedbackRepository) {
-        this.feedbackRepository = feedbackRepository;
-    }
+    private FeedbackRepository feedbackRepository;
 
-    public List<Feedback> getAllFeedback() {
+    public List<Feedback> getAll() {
         return feedbackRepository.findAll();
     }
 
-    public Feedback getFeedbackById(int id) {
-        return feedbackRepository.findById(id).orElse(null); // Simplified to return null if not found
+    public Feedback getById(int id) {
+        return feedbackRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Feedback not found with id: " + id));
     }
 
-    public Feedback addFeedback(Feedback feedback) {
-        return feedbackRepository.save(feedback);
+    public Feedback save(Feedback obj) {
+        return feedbackRepository.save(obj);
     }
 
-    public Feedback updateFeedback(int id, Feedback newFeedback) {
-        Feedback existingFeedback = getFeedbackById(id);
-        if (existingFeedback != null) {
-            newFeedback.setFeedbackID(id); // Ensure same ID
-            return feedbackRepository.save(newFeedback);
+    public void delete(int id) {
+        if (!feedbackRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Feedback not found with id: " + id);
         }
-        return null;
+        feedbackRepository.deleteById(id);
     }
 
-    public boolean deleteFeedback(int id) {
-        Feedback existingFeedback = getFeedbackById(id);
-        if (existingFeedback != null) {
-            feedbackRepository.deleteById(id);
-            return true;
-        }
-        return false;
+    public Feedback update(int id, Feedback updatedObj) {
+        Feedback existing = getById(id);
+        // TODO: update fields here
+        return feedbackRepository.save(existing);
     }
 }
 

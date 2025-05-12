@@ -15,14 +15,14 @@ import lombok.*;
 public class TrackingStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "tracking_id")
     private int trackingID;
     @ManyToOne
     @JoinColumn(name = "caseID", referencedColumnName = "caseID")
     private CrimeCase caseID;
 
     @Enumerated(EnumType.STRING)
-    @Getter
-    @Setter
+    @Column(name = "update_status")
     private CaseStatus updateStatus;
 
     public void displayStatus() {

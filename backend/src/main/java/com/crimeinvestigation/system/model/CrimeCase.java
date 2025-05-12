@@ -17,17 +17,20 @@ public class CrimeCase {
     @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "caseID")
+    @Column(name = "case_id")
     private int caseID;
+    @Column(name = "date_time")
     protected LocalDateTime dateTime;
+    @Column(name = "location")
     protected String location;
+    @Column(name = "description")
     protected String description;
 
     /*@ManyToOne
     @JoinColumn(crimeName = "typeID")
     protected User userID;*/
 
-    protected int evidenceID;
+    //protected int evidenceID;
 
     @ManyToOne
     @JoinColumn(name = "typeID")

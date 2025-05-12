@@ -12,8 +12,13 @@ import lombok.*;
 @NoArgsConstructor
 @DiscriminatorValue("Drugtrafficking")
 public class Drugtrafficking extends CrimeCase{
+    @Column(name = "drug_type")
     private String drugType;
+
+    @Column(name = "quantity")
     private String quantity;
+
+    @Column(name = "storage_method")
     private String storageMethod;
 
 

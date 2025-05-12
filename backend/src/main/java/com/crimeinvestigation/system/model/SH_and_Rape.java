@@ -12,7 +12,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @DiscriminatorValue("Rape")
 public class SH_and_Rape extends Harassment {
+
+    @Column(name = "date_time")
     protected LocalDateTime dateTime;
+
+    @Column(name = "rape_type")
     protected String rapeType;
 
 

@@ -11,12 +11,18 @@ import lombok.*;
 @AllArgsConstructor
 @DiscriminatorValue("Investigator")
 public class Investigator extends Person {
+    @Column(name = "band")
     protected String band;
 
+    @Column(name = "work_timing")
     protected String workTiming;
+
+    @Column(name = "no_of_current_cases")
     protected int no_of_current_cases;
+
+    @Column(name = "solved_cases")
     protected int solved_cases;
-    private String role = "INVESTIGATOR";
+
 
     @Column(unique = true)
     private String email;
@@ -29,7 +35,6 @@ public class Investigator extends Person {
     @Override
     public void displayDetails(){
         super.displayDetails();
-        System.out.println("Role: " + role);
         System.out.println("Email: " + email);
         System.out.println("Specialization: " + specialization);
         System.out.println("No of Current Cases: " + no_of_current_cases);

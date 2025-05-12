@@ -14,9 +14,10 @@ public class CrimeType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "type_id")
     protected int typeID;
 
-    @Column(name = "crimeName")
+    @Column(name = "crime_name")
     protected String crimeName;
 
 

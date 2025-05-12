@@ -11,8 +11,13 @@ import lombok.*;
 @DiscriminatorValue("Kidnapping")
 public class Kidnapping extends CrimeCase {
 
+    @Column(name = "relation_to_victim")
     private String relationToVictim;
+
+    @Column(name = "demand_made")
     private String demandMade;
+
+    @Column(name = "last_seen")
     private String lastSeen;
 
 

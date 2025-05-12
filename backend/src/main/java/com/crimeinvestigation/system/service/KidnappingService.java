@@ -2,6 +2,7 @@
 
 package com.crimeinvestigation.system.service;
 
+import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import com.crimeinvestigation.system.model.Kidnapping;
 import com.crimeinvestigation.system.repository.KidnappingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,35 +15,32 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 @Service
 public class KidnappingService {
 
-    private final KidnappingRepository repository;
-
     @Autowired
-    public KidnappingService(KidnappingRepository repository) {
-        this.repository = repository;
+    private KidnappingRepository kidnappingRepository;
+
+    public List<Kidnapping> getAll() {
+        return kidnappingRepository.findAll();
     }
 
-    public List<Kidnapping> getAllKidnappingCases() {
-        return repository.findAll();
+    public Kidnapping getById(int id) {
+        return kidnappingRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Kidnapping not found with id: " + id));
     }
 
-    public Kidnapping addKidnappingCase(Kidnapping kidnapping) {
-        return repository.save(kidnapping);
+    public Kidnapping save(Kidnapping obj) {
+        return kidnappingRepository.save(obj);
     }
 
-    public Kidnapping updateKidnappingCase(int caseID, Kidnapping updated) {
-
-        if (repository.existsById(caseID)) {
-            updated.setCaseID(caseID);
-            return repository.save(updated);
+    public void delete(int id) {
+        if (!kidnappingRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Kidnapping not found with id: " + id);
         }
-        return null;
+        kidnappingRepository.deleteById(id);
     }
 
-    public String deleteKidnappingCase(int id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            return "Kidnapping case deleted successfully.";
-        }
-        return "Kidnapping case not found.";
+    public Kidnapping update(int id, Kidnapping updatedObj) {
+        Kidnapping existing = getById(id);
+        // TODO: update fields here
+        return kidnappingRepository.save(existing);
     }
 }

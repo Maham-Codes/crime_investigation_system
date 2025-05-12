@@ -4,7 +4,7 @@ public enum Crimetypes {
     MURDER,
     THEFT,
     CYBERCRIME,
-    RAPE,
+    KIDNAPPING,
     HARASSMENT,
     DRUGTRAFFICKING
 }

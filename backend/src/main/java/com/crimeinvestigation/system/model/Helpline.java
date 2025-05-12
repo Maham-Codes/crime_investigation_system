@@ -11,8 +11,16 @@ import lombok.*;
     public class Helpline {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "helpline_id")
     protected int helplineID;
-        private String region_area,helplinenumber,helplinetype;
+    @Column(name = "region_area")
+        private String region_area;
+
+    @Column(name = "helpline_number")
+        private String helplinenumber;
+
+    @Column(name = "helpline_type")
+        private String helplinetype;
 
         public void DisplayInfo() {
             System.out.println(helplinenumber);

@@ -12,9 +12,16 @@ import lombok.*;
 @AllArgsConstructor
 public class LawsAndPunishments {
     @Id
+    @Column(name = "law_id")
     private  String lawID;
+
+    @Column(name = "crime_type")
     private  String crime_type;
+
+    @Column(name = "section_name")
     private  String section_name;
+
+    @Column(name = "punishment")
     private  String punishment;
 
 
