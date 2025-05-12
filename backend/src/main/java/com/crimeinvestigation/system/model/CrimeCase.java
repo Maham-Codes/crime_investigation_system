@@ -14,11 +14,10 @@ import java.time.LocalDateTime;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //@DiscriminatorColumn(crimeName = "case_type", discriminatorType = DiscriminatorType.STRING)
 public class CrimeCase {
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "case_id")
-    private int caseID;
+    protected Long caseID;
     @Column(name = "date_time")
     protected LocalDateTime dateTime;
     @Column(name = "location")
@@ -38,9 +37,6 @@ public class CrimeCase {
 
     @Enumerated(EnumType.STRING)
     private CaseStatus caseStatus;
-
-    @ManyToOne
-    private Investigator assignedInvestigator;
 
     @OneToOne
     @JoinColumn(name = "investigatorID")

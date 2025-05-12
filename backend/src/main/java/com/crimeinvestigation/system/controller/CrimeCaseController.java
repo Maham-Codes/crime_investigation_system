@@ -1,7 +1,6 @@
 package com.crimeinvestigation.system.controller;
 
-import com.crimeinvestigation.system.dao.CrimeCaseDao;
-import com.crimeinvestigation.system.service.CaseService;
+import com.crimeinvestigation.system.service.CrimeCaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +9,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/cases")
-public class CaseController {
+public class CrimeCaseController {
 
     @Autowired
-    private CaseService caseService;
+    private CrimeCaseService caseService;
 
     @GetMapping("/closed")
     public List<Map<String, Object>> getClosedCases() {

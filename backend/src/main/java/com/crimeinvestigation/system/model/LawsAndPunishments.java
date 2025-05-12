@@ -13,7 +13,7 @@ import lombok.*;
 public class LawsAndPunishments {
     @Id
     @Column(name = "law_id")
-    private  String lawID;
+    private  Long lawID;
 
     @Column(name = "crime_type")
     private  String crime_type;

@@ -18,25 +18,38 @@ public class CriminalService {
         return criminalRepository.findAll();
     }
 
-    public Criminal getById(int id) {
+    public Criminal getById(Long id) {
         return criminalRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Criminal not found with id: " + id));
     }
 
-    public Criminal save(Criminal obj) {
-        return criminalRepository.save(obj);
+    public Criminal save(Criminal criminal) {
+        // TODO: Validate criminal data before saving
+        return criminalRepository.save(criminal);
     }
 
-    public void delete(int id) {
+    public void delete(Long id) {
         if (!criminalRepository.existsById(id)) {
             throw new ResourceNotFoundException("Criminal not found with id: " + id);
         }
+        // TODO: Check if the criminal is linked to active cases before deleting
         criminalRepository.deleteById(id);
     }
 
-    public Criminal update(int id, Criminal updatedObj) {
+    public Criminal update(Long id, Criminal updated) {
         Criminal existing = getById(id);
-        // TODO: update fields here
+
+        // TODO: Add audit logging for changes made to criminal record
+        existing.setCrimetypes(updated.getCrimetypes());
+        existing.setCurrentStatus(updated.getCurrentStatus());
+        existing.setNationality(updated.getNationality());
+        existing.setReputation(updated.getReputation());
+
         return criminalRepository.save(existing);
     }
+
+    // TODO: Add method to fetch criminals by crime type
+    // public List<Criminal> getByCrimeType(Crimetypes type) { ... }
+
+    // TODO: Add method to link/unlink criminals to/from crime cases if @ManyToMany is enabled
 }

@@ -15,7 +15,7 @@ public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "feedback_id")
-    private int feedbackID;
+    private Long feedbackID;
 
     /*@ManyToOne
     @JoinColumn(crimeName = "userid")

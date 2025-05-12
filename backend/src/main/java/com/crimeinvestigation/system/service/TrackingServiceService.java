@@ -1,16 +1,15 @@
 package com.crimeinvestigation.system.service;
 
+import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import com.crimeinvestigation.system.model.TrackingStatus;
 import com.crimeinvestigation.system.repository.TrackingStatusRepository;
-import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TrackingStatusService {
-
+public class TrackingServiceService {
     @Autowired
     private TrackingStatusRepository trackingStatusRepository;
 
@@ -40,4 +39,3 @@ public class TrackingStatusService {
         return trackingStatusRepository.save(existing);
     }
 }
-

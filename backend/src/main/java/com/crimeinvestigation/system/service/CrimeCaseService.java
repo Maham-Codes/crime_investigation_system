@@ -1,5 +1,7 @@
 package com.crimeinvestigation.system.service;
 
+import com.crimeinvestigation.system.dao.CrimeCaseDao;
+import com.crimeinvestigation.system.enums.CaseStatus;
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import com.crimeinvestigation.system.model.CrimeCase;
 import com.crimeinvestigation.system.repository.CrimeCaseRepository;
@@ -7,36 +9,65 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class CrimeCaseService {
 
     @Autowired
-    private CrimeCaseRepository crimeCaseRepository;
+    private CrimeCaseRepository crimeCaseRepo;
 
-    public List<CrimeCase> getAll() {
-        return crimeCaseRepository.findAll();
+    @Autowired
+    private CrimeCaseDao crimeCaseDao; // add this
+
+    public List<Map<String, Object>> getClosedCases() {
+        return crimeCaseDao.getClosedCases();
     }
 
-    public CrimeCase getById(Long id) {
-        return crimeCaseRepository.findById(id)
+    public CrimeCase updateCaseStatus(Long caseId, CaseStatus newStatus) {
+        Optional<CrimeCase> optionalCase = crimeCaseRepo.findById(caseId);
+        if (optionalCase.isPresent()) {
+            CrimeCase crimeCase = optionalCase.get();
+            crimeCase.setCaseStatus(newStatus);
+            return crimeCaseRepo.save(crimeCase);
+        } else {
+            throw new RuntimeException("Case not found");
+        }
+    }
+
+    public List<CrimeCase> getAllCases() {
+        return crimeCaseRepo.findAll();
+    }
+
+    public CrimeCase getCaseById(Long id) {
+        return crimeCaseRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("CrimeCase not found with id: " + id));
     }
 
-    public CrimeCase save(CrimeCase obj) {
-        return crimeCaseRepository.save(obj);
+    public CrimeCase saveCase(CrimeCase crimeCase) {
+        return crimeCaseRepo.save(crimeCase);
     }
 
-    public void delete(Long id) {
-        if (!crimeCaseRepository.existsById(id)) {
+    public void deleteCase(Long id) {
+        if (!crimeCaseRepo.existsById(id)) {
             throw new ResourceNotFoundException("CrimeCase not found with id: " + id);
         }
-        crimeCaseRepository.deleteById(id);
+        crimeCaseRepo.deleteById(id);
     }
 
-    public CrimeCase update(Long id, CrimeCase updatedObj) {
-        CrimeCase existing = getById(id);
-        // TODO: update fields here
-        return crimeCaseRepository.save(existing);
+    public CrimeCase updateCase(Long id, CrimeCase updatedCase) {
+        CrimeCase existing = getCaseById(id);
+
+        existing.setDateTime(updatedCase.getDateTime());
+        existing.setLocation(updatedCase.getLocation());
+        existing.setDescription(updatedCase.getDescription());
+        existing.setCrimeType(updatedCase.getCrimeType());
+        existing.setCaseStatus(updatedCase.getCaseStatus());
+        existing.setInvestigatorID(updatedCase.getInvestigatorID());
+
+        return crimeCaseRepo.save(existing);
     }
+
 }
+

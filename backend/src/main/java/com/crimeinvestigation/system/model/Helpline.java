@@ -12,7 +12,7 @@ import lombok.*;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "helpline_id")
-    protected int helplineID;
+    protected Long helplineID;
     @Column(name = "region_area")
         private String region_area;
 

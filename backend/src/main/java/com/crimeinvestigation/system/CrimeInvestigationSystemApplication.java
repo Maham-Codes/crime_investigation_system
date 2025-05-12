@@ -1,7 +1,6 @@
 package com.crimeinvestigation.system;
 
 import com.crimeinvestigation.system.service.CrimeTypeService;
-import com.crimeinvestigation.system.service.CaseTrackingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
