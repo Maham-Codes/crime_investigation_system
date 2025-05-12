@@ -48,19 +48,29 @@ public class CrimeTypeDao {
 
     public List<CrimeType> getAllCrimeTypes() {
         List<CrimeType> crimeTypes = new ArrayList<>();
-        String sql = "SELECT * FROM crimetype";
+        String sql = "SELECT * FROM crimetype  ;";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
+            java.sql.ResultSetMetaData metaData = rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            System.out.println("=== Crime Types in Database ===");
+
             while (rs.next()) {
+                int id = rs.getInt(1); // Get by index (first column)
+                String name = rs.getString(2); // Get by index (second column)
+
+                System.out.println("Type ID: " + id + ", Crime Name: " + name);
+
                 CrimeType crimeType = new CrimeType();
                 crimeType.setTypeID(rs.getInt("typeID"));
                 crimeType.setCrimeName(rs.getString("crimeName"));
-                System.out.println("DEBUG — ID: " + crimeType.getTypeID() + ", Name: " + crimeType.getCrimeName());
                 crimeTypes.add(crimeType);
             }
+
 
         } catch (SQLException e) {
             System.err.println("Error retrieving crime types:");
@@ -68,6 +78,7 @@ public class CrimeTypeDao {
         }
 
         return crimeTypes;
+
     }
 }
 
