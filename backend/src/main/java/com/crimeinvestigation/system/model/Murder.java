@@ -14,9 +14,16 @@ import java.time.LocalTime;
 @DiscriminatorValue("Murder")
 public class Murder extends CrimeCase {
 
+    @Column(name = "time_of_death")
     private LocalTime timeOfDeath;
+
+    @Column(name = "victim_name")
     private String victimName;
+
+    @Column(name = "body_recovered")
     private boolean bodyRecovered;
+
+    @Column(name = "autopsy")
     private String autopsy;
 
 

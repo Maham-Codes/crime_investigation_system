@@ -13,6 +13,7 @@ public class Evidence {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "evidence_id")
     private int evidenceID;
 
     /*@ManyToOne
@@ -23,6 +24,7 @@ public class Evidence {
     @JoinColumn(crimeName = "caseID")
     private CrimeCase caseID;*/
 
+    @Column(name = "evidence_type")
     private String evidenceType;
 
     public void displayDetails() {

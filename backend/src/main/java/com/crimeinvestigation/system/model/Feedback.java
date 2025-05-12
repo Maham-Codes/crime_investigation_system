@@ -14,6 +14,7 @@ import java.time.LocalDate;
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "feedback_id")
     private int feedbackID;
 
     /*@ManyToOne
@@ -24,8 +25,13 @@ public class Feedback {
     @JoinColumn(crimeName = "caseid")
     private CrimeCase crimeCase;*/
 
+    @Column(name = "rating")
     private int rating;
+
+    @Column(name = "comments")
     private String comments;
+
+    @Column(name = "feedback_date")
     private LocalDate feedbackDate;
 
 

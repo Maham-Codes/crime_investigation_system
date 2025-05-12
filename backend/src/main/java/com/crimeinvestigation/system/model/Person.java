@@ -1,4 +1,6 @@
 package com.crimeinvestigation.system.model;
+import com.crimeinvestigation.system.enums.Crimetypes;
+import com.crimeinvestigation.system.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,14 +21,32 @@ import java.time.Period;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "person_id")
     protected int personid;
 
+    @Column(name = "name")
     protected String name;
+
+    @Column(name = "father_name")
     protected String father_name;
+
+    @Column(name = "contact_number")
     protected String contact_number;
+
+    @Column(name = "dob")
     protected LocalDate dob;
+
+    @Column(name = "occupation")
     protected String occupation;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
+
+    @Column(name = "cnic")
     protected String cnic;
+
+    @Column(name = "gender")
     protected String gender;
 
 

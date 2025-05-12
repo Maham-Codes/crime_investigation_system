@@ -23,9 +23,16 @@ public class Criminal extends Person {
 
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "crime_type")
     private Crimetypes crimetypes;
+
+    @Column(name = "current_status")
     protected String currentStatus;
+
+    @Column(name = "reputation")
     protected String reputation;
+
+    @Column(name = "nationality")
     protected String nationality;
 
      @Override

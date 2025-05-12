@@ -13,6 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @DiscriminatorValue("User")
 public class User extends Person{
+    @Column(name = "address")
     protected String address;
 
     @Column(unique = true)
@@ -20,15 +21,11 @@ public class User extends Person{
 
     private String password;
 
-    @Enumerated(EnumType.STRING)
-   // private UserType userType;
-    private Role role;
 
     @Override
     public void displayDetails(){
         super.displayDetails();
         System.out.println("Address: " + address);
         System.out.println("Email: " + email);
-        System.out.println("UserType: " + role);
     }
 }
