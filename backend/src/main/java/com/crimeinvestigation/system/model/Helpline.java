@@ -6,11 +6,11 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "helpline")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "helpline")
     public class Helpline implements Serializable {
 
     @Serial

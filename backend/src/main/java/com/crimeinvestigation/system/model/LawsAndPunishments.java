@@ -6,10 +6,10 @@ import lombok.*;
 
 
 @Entity
-@Table(name = "laws_and_punishments")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "laws_and_punishments")
 public class LawsAndPunishments implements Displayable {
     @Id
     @Column(name = "law_id")

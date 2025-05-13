@@ -26,7 +26,7 @@ public class CrimeInvestigationSystemApplication implements CommandLineRunner {
         SpringApplication.run(CrimeInvestigationSystemApplication.class, args);
     }
 
-*/
+
     @Override
     public void run(String... args) {
 

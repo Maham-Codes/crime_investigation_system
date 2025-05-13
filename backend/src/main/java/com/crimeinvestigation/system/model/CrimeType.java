@@ -5,11 +5,12 @@ import lombok.*;
 
 
 @Entity
-@Table(name = "crimetype")
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "crime_type")
 public class CrimeType {
 
     @Id
