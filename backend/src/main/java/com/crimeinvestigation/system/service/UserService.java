@@ -8,12 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    public String getFirst_LastNameByEmail(String email) {
+        Optional<User> optionalUser =  userRepository.findByEmail(email);
+        if(optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            return user.getFirstName() + " " + user.getLastName();
+        }
+        else
+            return null;
+    }
 
     public List<User> getAll() {
         return userRepository.findAll();

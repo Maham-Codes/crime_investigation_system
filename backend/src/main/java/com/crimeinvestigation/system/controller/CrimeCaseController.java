@@ -18,5 +18,6 @@ public class CrimeCaseController {
     public List<Map<String, Object>> getClosedCases() {
         return caseService.getClosedCases(); // call service, not DAO directly
     }
+
 }
 
