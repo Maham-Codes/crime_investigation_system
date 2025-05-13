@@ -2,6 +2,7 @@ package com.crimeinvestigation.system.service;
 
 import com.crimeinvestigation.system.dao.CrimeCaseDao;
 import com.crimeinvestigation.system.enums.CaseStatus;
+import com.crimeinvestigation.system.enums.Crimetypes;
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import com.crimeinvestigation.system.model.CrimeCase;
 import com.crimeinvestigation.system.model.Evidence;
@@ -10,6 +11,8 @@ import com.crimeinvestigation.system.repository.EvidenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -79,6 +82,5 @@ public class CrimeCaseService {
         evidence.setCrimeCase(crimeCase);
         evidenceRepo.save(evidence);
     }
-
 }
 
