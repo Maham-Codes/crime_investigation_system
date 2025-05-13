@@ -15,26 +15,14 @@ import java.util.Map;
 @EntityScan(basePackages = "com.crimeinvestigation.system.model")
 public class CrimeInvestigationSystemApplication implements CommandLineRunner {
 
-    @Autowired
-    private CrimeTypeService crimeTypeService;
-
-    @Autowired
-    private CrimeCaseDao crimeCaseDao;
-
-
     public static void main(String[] args) {
         SpringApplication.run(CrimeInvestigationSystemApplication.class, args);
+
+
     }
 
-*/
     @Override
-    public void run(String... args) {
+    public void run(String... args) throws Exception {
 
-        // Call the CrimeCaseDao method to get closed cases and print them
-       /* List<Map<String, Object>> closedCases = crimeCaseDao.getClosedCases();
-        for (Map<String, Object> row : closedCases) {
-            System.out.println(row);
-        }
-*/
     }
 }
