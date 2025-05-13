@@ -17,13 +17,13 @@ public class Feedback {
     @Column(name = "feedback_id")
     private Long feedbackID;
 
-    /*@ManyToOne
-    @JoinColumn(crimeName = "userid")
-    private User user;*/
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    /*@ManyToOne
-    @JoinColumn(crimeName = "caseid")
-    private CrimeCase crimeCase;*/
+    @ManyToOne
+    @JoinColumn(name = "case_id")
+    private CrimeCase crimeCase;
 
     @Column(name = "rating")
     private int rating;
@@ -34,6 +34,22 @@ public class Feedback {
     @Column(name = "feedback_date")
     private LocalDate feedbackDate;
 
+    public Feedback(int rating, String comment) {
+        this.rating = rating;
+        this.comments = comments;
+    }
+
+    public Feedback(int rating, String comments, User user, CrimeCase crimeCase) {
+        this.rating = rating;
+        this.comments = comments;
+        this.user = user;
+        this.crimeCase = crimeCase;
+    }
+
+    public void updateFeedback(int newRating, String newComments) {
+        this.rating = newRating;
+        this.comments = newComments;
+    }
 
     public void displayFeedback() {
         System.out.println("Feedback ID: " + feedbackID);
@@ -41,9 +57,6 @@ public class Feedback {
         System.out.println("Comments: " + comments);
         System.out.println("Feedback Date: " + feedbackDate);
     }
-    public void updateFeedback(int newRating, String newComments) {
-        this.rating = newRating;
-        this.comments = newComments;
-    }
+
 
 }

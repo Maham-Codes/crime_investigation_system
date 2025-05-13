@@ -16,13 +16,9 @@ public class Evidence {
     @Column(name = "evidence_id")
     private Long evidenceID;
 
-    /*@ManyToOne
-    @JoinColumn(crimeName = "userID")
-    private User userID;*/
-
-    /*@ManyToOne
-    @JoinColumn(crimeName = "caseID")
-    private CrimeCase caseID;*/
+    @ManyToOne
+    @JoinColumn(name = "case_id")
+    private CrimeCase crimeCase;
 
     @Column(name = "evidence_type")
     private String evidenceType;

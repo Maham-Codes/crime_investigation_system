@@ -4,7 +4,9 @@ import com.crimeinvestigation.system.dao.CrimeCaseDao;
 import com.crimeinvestigation.system.enums.CaseStatus;
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import com.crimeinvestigation.system.model.CrimeCase;
+import com.crimeinvestigation.system.model.Evidence;
 import com.crimeinvestigation.system.repository.CrimeCaseRepository;
+import com.crimeinvestigation.system.repository.EvidenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,9 @@ public class CrimeCaseService {
 
     @Autowired
     private CrimeCaseDao crimeCaseDao; // add this
+
+    @Autowired
+    private EvidenceRepository evidenceRepo;
 
     public List<Map<String, Object>> getClosedCases() {
         return crimeCaseDao.getClosedCases();
@@ -67,6 +72,12 @@ public class CrimeCaseService {
         existing.setInvestigatorID(updatedCase.getInvestigatorID());
 
         return crimeCaseRepo.save(existing);
+    }
+
+    public void addEvidenceToCase(Long caseId, Evidence evidence) {
+        CrimeCase crimeCase = crimeCaseRepo.findById(caseId).orElseThrow();
+        evidence.setCrimeCase(crimeCase);
+        evidenceRepo.save(evidence);
     }
 
 }

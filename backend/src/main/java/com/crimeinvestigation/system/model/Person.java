@@ -62,7 +62,7 @@ public abstract class Person implements Serializable {
     @Column(name = "gender")
     private Gender gender;
 
-
+//utility method
     public int getAge() {
         try {
             LocalDate dateOfBirth = this.dob; // Use the class field directly

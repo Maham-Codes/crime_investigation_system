@@ -4,6 +4,7 @@ import com.crimeinvestigation.system.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,11 +26,9 @@ public class CrimeCase {
     @Column(name = "description")
     protected String description;
 
-    /*@ManyToOne
-    @JoinColumn(crimeName = "typeID")
-    protected User userID;*/
-
-    //protected int evidenceID;
+    // Aggregation: One crime case can have multiple evidence entries
+    @OneToMany(mappedBy = "crimeCase", cascade = CascadeType.ALL)
+    private List<Evidence> evidenceList;
 
     @ManyToOne
     @JoinColumn(name = "crime_type_id")
@@ -42,7 +41,7 @@ public class CrimeCase {
     @JoinColumn(name = "investigator_id")
     private Investigator investigatorID;
 
-    private Investigator assignedInvestigator;
+
 
 
     public void displayDetails() {}
