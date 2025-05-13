@@ -2,6 +2,7 @@ package com.crimeinvestigation.system.dto;
 
 import com.crimeinvestigation.system.enums.Role;
 import com.crimeinvestigation.system.enums.Gender;
+import com.crimeinvestigation.system.enums.UserType;
 
 public class UserSignupRequest {
     public String firstName;
@@ -17,5 +18,5 @@ public class UserSignupRequest {
     public Gender gender;
     public String email;
     public String password;
-    public Role role;  // VICTIM or EYEWITNESS
+    public UserType userType;  // VICTIM or EYEWITNESS
 }

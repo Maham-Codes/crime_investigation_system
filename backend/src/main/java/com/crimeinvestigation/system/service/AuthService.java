@@ -2,7 +2,9 @@ package com.crimeinvestigation.system.service;
 
 import com.crimeinvestigation.system.dto.InvestigatorSignupRequest;
 import com.crimeinvestigation.system.dto.UserSignupRequest;
+import com.crimeinvestigation.system.enums.Role;
 import com.crimeinvestigation.system.model.Investigator;
+import com.crimeinvestigation.system.model.Person;
 import com.crimeinvestigation.system.model.User;
 import com.crimeinvestigation.system.repository.InvestigatorRepository;
 import com.crimeinvestigation.system.repository.UserRepository;
@@ -44,6 +46,7 @@ public class AuthService {
     }
 
     public User registerUser(UserSignupRequest request) {
+
         User user = new User();
         user.setFirstName(request.firstName);
         user.setMidName(request.midName);
@@ -57,7 +60,10 @@ public class AuthService {
         user.setGender(request.gender);
         user.setEmail(request.email);
         user.setPassword(request.password);
-        user.setRole(request.role);
+//        System.out.println(request.role);
+//        user.setRole(request.role);
+        user.setRole(Role.user);
+        user.setUserType(request.userType);
         return userRepo.save(user);
     }
 

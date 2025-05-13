@@ -1,5 +1,7 @@
 package com.crimeinvestigation.system.model;
 
+import com.crimeinvestigation.system.enums.Gender;
+import com.crimeinvestigation.system.enums.UserType;
 import jakarta.persistence.Entity;
 import com.crimeinvestigation.system.enums.Role;
 import jakarta.persistence.*;
@@ -21,6 +23,9 @@ public class User extends Person{
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_type")
+    private UserType userType;
 
     @Override
     public void displayDetails(){
