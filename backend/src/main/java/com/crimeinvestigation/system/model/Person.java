@@ -9,7 +9,7 @@ import lombok.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
-
+import java.time.Period;
 
 
 @Entity
@@ -63,16 +63,19 @@ public abstract class Person implements Serializable {
     private Gender gender;
 
 
-    /*public int getAge() {
+    public int getAge() {
         try {
-            LocalDate dob = LocalDate.parse(getDob());
+            LocalDate dateOfBirth = this.dob; // Use the class field directly
+            if (dateOfBirth == null) {
+                return 0;
+            }
             LocalDate today = LocalDate.now();
-            return Period.between(dob, today).getYears();
+            return Period.between(dateOfBirth, today).getYears();
         } catch (Exception e) {
-            System.out.println("Invalid date format in DOB. Expected format: yyyy-MM-dd");
+            System.out.println("Error calculating age");
             return 0;
         }
-    }*/
+    }
 
     public void setCnic(String cnic) {
         if (!cnic.matches("\\d{13}")) {
@@ -80,8 +83,6 @@ public abstract class Person implements Serializable {
         }
         this.cnic = cnic;
     }
-
-
 
     public abstract void displayDetails();
 }

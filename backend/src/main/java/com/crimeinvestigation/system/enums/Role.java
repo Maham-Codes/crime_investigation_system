@@ -1,7 +1,7 @@
 package com.crimeinvestigation.system.enums;
 
 public enum Role {
-    VICTIM,
-    EYEWITNESS,
-    INVESTIGATOR
+    user,
+    investigator,
+    criminal
 }

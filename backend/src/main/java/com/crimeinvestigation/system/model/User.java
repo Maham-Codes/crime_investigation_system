@@ -1,6 +1,7 @@
 package com.crimeinvestigation.system.model;
 
-import com.crimeinvestigation.system.interfaces.SensitiveData;
+import com.crimeinvestigation.system.enums.Gender;
+import com.crimeinvestigation.system.enums.UserType;
 import jakarta.persistence.Entity;
 import com.crimeinvestigation.system.enums.Role;
 import jakarta.persistence.*;
@@ -13,7 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @DiscriminatorValue("User")
-public class User extends Person implements SensitiveData {
+public class User extends Person{
     //@Column(name = "address")
     protected String address;
 
@@ -22,6 +23,9 @@ public class User extends Person implements SensitiveData {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_type")
+    private UserType userType;
 
     @Override
     public void displayDetails(){
