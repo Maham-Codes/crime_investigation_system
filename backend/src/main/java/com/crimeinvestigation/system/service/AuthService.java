@@ -59,11 +59,12 @@ public class AuthService {
         user.setPersonid((long) request.personId);
         user.setGender(request.gender);
         user.setEmail(request.email);
+        user.setUsername(request.username);
         user.setPassword(request.password);
 //        System.out.println(request.role);
 //        user.setRole(request.role);
         user.setRole(Role.user);
-        user.setUserType(request.userType);
+       // user.setUserType(request.userType);
         return userRepo.save(user);
     }
 
@@ -72,8 +73,8 @@ public class AuthService {
         return optional.filter(inv -> inv.getPassword().equals(password)).orElse(null);
     }
 
-    public User loginUser(String email, String password) {
-        Optional<User> optional = userRepo.findByEmail(email);
+    public User loginUser(String username, String password) {
+        Optional<User> optional = userRepo.findByUsername(username);
         return optional.filter(user -> user.getPassword().equals(password)).orElse(null);
     }
 }

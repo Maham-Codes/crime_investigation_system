@@ -23,9 +23,12 @@ public class User extends Person{
 
     private String password;
 
+    @Column(name = "first_name")
+    private String firstname;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "user_type")
-    private UserType userType;
+    @Column(name = "role")
+    private Role role;
 
     @Override
     public void displayDetails(){

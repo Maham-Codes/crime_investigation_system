@@ -10,6 +10,7 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
@@ -49,7 +50,12 @@ public class AuthController {
 //        if (user != null) return ResponseEntity.ok(user);
 //        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
 //    }
-
+    @Autowired
+    private com.crimeinvestigation.system.repository.UserRepository userRepo;
+    public User loginUser(String username, String password) {
+    Optional<User> optional = userRepo.findByUsername(username);
+    return optional.filter(user -> user.getPassword().equals(password)).orElse(null);
+}
     @PostMapping("/user/login")
     public ResponseEntity<?> userLogin(@RequestBody Map<String, String> credentials) {
         String email = credentials.get("email");

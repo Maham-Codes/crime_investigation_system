@@ -62,7 +62,16 @@ public abstract class Person implements Serializable {
     @Column(name = "gender")
     private Gender gender;
 
-//utility method
+    @Enumerated(EnumType.STRING)
+    @Column(name = "username")
+    private String username;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "password")
+    private String password;
+
+
+    //utility method
     public int getAge() {
         try {
             LocalDate dateOfBirth = this.dob; // Use the class field directly

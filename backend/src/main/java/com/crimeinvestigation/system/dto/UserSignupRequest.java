@@ -18,5 +18,6 @@ public class UserSignupRequest {
     public Gender gender;
     public String email;
     public String password;
-    public UserType userType;  // VICTIM or EYEWITNESS
+    public Role role;  // VICTIM or EYEWITNESS
+    public String username;
 }
