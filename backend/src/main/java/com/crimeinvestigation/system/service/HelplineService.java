@@ -5,6 +5,7 @@ import com.crimeinvestigation.system.model.Helpline;
 import com.crimeinvestigation.system.repository.HelplineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.crimeinvestigation.system.helper.HelplineHelper;
 
 import java.util.List;
 
@@ -23,21 +24,14 @@ public class HelplineService {
                 .orElseThrow(() -> new ResourceNotFoundException("Helpline not found with id: " + id));
     }
 
-    public Helpline save(Helpline obj) {
-        return helplineRepository.save(obj);
+    public void exportToFile() {
+        List<Helpline> allHelplines = helplineRepository.findAll();
+        HelplineHelper.saveToFile(allHelplines); // Calls static method
     }
 
-    public void delete(int id) {
-        if (!helplineRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Helpline not found with id: " + id);
-        }
-        helplineRepository.deleteById(id);
-    }
-
-    public Helpline update(int id, Helpline updatedObj) {
-        Helpline existing = getById(id);
-        // TODO: update fields here
-        return helplineRepository.save(existing);
+    public List<Helpline> importFromFile() {
+        return HelplineHelper.readFromFile(); // Calls static method
     }
 }
+
 

@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.model;
 
+import com.crimeinvestigation.system.interfaces.Displayable;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,10 +8,9 @@ import lombok.*;
 @Entity
 @Table(name = "laws_and_punishments")
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LawsAndPunishments {
+public class LawsAndPunishments implements Displayable {
     @Id
     @Column(name = "law_id")
     private  Long lawID;
@@ -25,7 +25,8 @@ public class LawsAndPunishments {
     private  String punishment;
 
 
-    public  void displayDetails() {
+    @Override
+    public  void display() {
         System.out.println("LawID: "+lawID);
         System.out.println("Crime Type: "+crime_type);
         System.out.println("Law: "+section_name);

@@ -2,8 +2,6 @@ package com.crimeinvestigation.system.service;
 
 import com.crimeinvestigation.system.dto.InvestigatorSignupRequest;
 import com.crimeinvestigation.system.dto.UserSignupRequest;
-import com.crimeinvestigation.system.enums.Role;
-import com.crimeinvestigation.system.enums.UserType;
 import com.crimeinvestigation.system.model.Investigator;
 import com.crimeinvestigation.system.model.User;
 import com.crimeinvestigation.system.repository.InvestigatorRepository;
@@ -25,39 +23,38 @@ public class AuthService {
 
     public Investigator registerInvestigator(InvestigatorSignupRequest request) {
         Investigator inv = new Investigator();
-        inv.setName(request.name);
-        inv.setFather_name(request.fatherName);
-        inv.setEmail(request.email);
-        inv.setContact_number(request.contactNumber);
+        inv.setFirstName(request.firstName);
+        inv.setMidName(request.midName);
+        inv.setLastName(request.lastName);
+        inv.setFatherName(request.fatherName);
+        inv.setContactNumber(request.contactNumber);
         inv.setDob(LocalDate.parse(request.dob));
         inv.setOccupation(request.occupation);
         inv.setCnic(request.cnic);
-        inv.setPersonid(request.personId);
-        inv.setGender(String.valueOf(request.inv_gender));
+        inv.setPersonid((long) request.personId);
+        inv.setGender(request.gender);
+        inv.setRole(request.role);
         inv.setBand(request.rank);
-        inv.setNo_of_current_cases(request.noOfCurrentCases);
-        inv.setSolved_cases(request.solvedCases);
+        inv.setNoOfCurrentCases(request.noOfCurrentCases);
+        inv.setSolvedCases(request.solvedCases);
         inv.setEmail(request.email);
-        inv.setPassword(request.password);  // 🔐 In production, encrypt this!
+        inv.setPassword(request.password);
         inv.setSpecialization(request.specialization);
         return investigatorRepo.save(inv);
     }
 
     public User registerUser(UserSignupRequest request) {
         User user = new User();
-        user.setName(request.fullName);
-      //  user.setFatherName(request.fatherName);
-        user.setFather_name(request.fatherName);
-       // user.setContactNumber(request.contactNumber);
-        user.setContact_number(request.contactNumber);
-       // user.setDOB(request.dob);
+        user.setFirstName(request.firstName);
+        user.setMidName(request.midName);
+        user.setLastName(request.lastName);
+        user.setFatherName(request.fatherName);
+        user.setContactNumber(request.contactNumber);
         user.setDob(LocalDate.parse(request.dob));
         user.setOccupation(request.occupation);
-       // user.setCNIC(request.CNICNumber);
-        user.setCnic(request.CNICNumber);
-       // user.setPersonID(request.personId);
-        user.setPersonid(request.personId);
-        user.setGender(String.valueOf(request.user_gender));
+        user.setCnic(request.cnic);
+        user.setPersonid((long) request.personId);
+        user.setGender(request.gender);
         user.setEmail(request.email);
         user.setPassword(request.password);
         user.setRole(request.role);

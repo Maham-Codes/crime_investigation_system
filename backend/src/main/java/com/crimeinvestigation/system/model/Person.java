@@ -1,13 +1,14 @@
 package com.crimeinvestigation.system.model;
-import com.crimeinvestigation.system.enums.Crimetypes;
+import com.crimeinvestigation.system.enums.Gender;
 import com.crimeinvestigation.system.enums.Role;
+import com.crimeinvestigation.system.exception.IllegalArgumentException;
 import jakarta.persistence.*;
 import lombok.*;
 
 
-
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.Period;
 
 
 @Table(name = "person")
@@ -18,42 +19,47 @@ import java.time.Period;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)// Use SINGLE_TABLE for Person hierarchy
-public class Person {
+public abstract class Person implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id")
-    protected Long personid;
+    private Long personid;
 
     @Column(name = "first_name")
-    protected String firstName;
+    private String firstName;
 
     @Column(name = "mid_name")
-    protected String midName;
+    private String midName;
 
     @Column(name = "last_name")
-    protected String lastName;
+    private String lastName;
 
     @Column(name = "father_name")
-    protected String father_name;
+    private String fatherName;
 
     @Column(name = "contact_number")
-    protected String contact_number;
+    private String contactNumber;
 
     @Column(name = "dob")
-    protected LocalDate dob;
+    private LocalDate dob;
 
     @Column(name = "occupation")
-    protected String occupation;
+    private String occupation;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Role role;
 
     @Column(name = "cnic")
-    protected String cnic;
+    private String cnic;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "gender")
-    protected String gender;
+    private Gender gender;
 
 
     /*public int getAge() {
@@ -67,17 +73,14 @@ public class Person {
         }
     }*/
 
-
-
-
-    public void displayDetails(){
-        System.out.println("Name: " + getFirstName());
-        System.out.println("MID: " + getMidName());
-        System.out.println("Last Name: " + getLastName());
-        System.out.println("Father: " + getFather_name());
-        System.out.println("Contact: " + getContact_number());
-        System.out.println("Occupation: " + getOccupation());
-        System.out.println("Birthday: " + getDob());
-        System.out.println("Gender: " + getGender());
+    public void setCnic(String cnic) {
+        if (!cnic.matches("\\d{13}")) {
+            throw new IllegalArgumentException("Invalid CNIC");
+        }
+        this.cnic = cnic;
     }
+
+
+
+    public abstract void displayDetails();
 }

@@ -18,7 +18,7 @@ public class CriminalService {
         return criminalRepository.findAll();
     }
 
-    public Criminal getById(Long id) {
+    public Criminal getById(int id) {
         return criminalRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Criminal not found with id: " + id));
     }
@@ -28,7 +28,7 @@ public class CriminalService {
         return criminalRepository.save(criminal);
     }
 
-    public void delete(Long id) {
+    public void delete(int id) {
         if (!criminalRepository.existsById(id)) {
             throw new ResourceNotFoundException("Criminal not found with id: " + id);
         }
@@ -36,7 +36,7 @@ public class CriminalService {
         criminalRepository.deleteById(id);
     }
 
-    public Criminal update(Long id, Criminal updated) {
+    public Criminal update(int id, Criminal updated) {
         Criminal existing = getById(id);
 
         // TODO: Add audit logging for changes made to criminal record

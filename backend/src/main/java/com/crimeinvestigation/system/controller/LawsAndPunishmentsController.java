@@ -22,4 +22,6 @@ public class LawsAndPunishmentsController {
     public List<LawsAndPunishments> getAllLaws() {
         return service.getAll();
     }
+
+
 }

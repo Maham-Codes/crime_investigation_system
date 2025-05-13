@@ -42,5 +42,8 @@ public class CrimeCase {
     @JoinColumn(name = "investigator_id")
     private Investigator investigatorID;
 
+    private Investigator assignedInvestigator;
+
+
     public void displayDetails() {}
 }

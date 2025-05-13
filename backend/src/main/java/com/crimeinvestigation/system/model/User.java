@@ -24,7 +24,6 @@ public class User extends Person{
 
     @Override
     public void displayDetails(){
-        super.displayDetails();
         System.out.println("Address: " + address);
         System.out.println("Email: " + email);
     }

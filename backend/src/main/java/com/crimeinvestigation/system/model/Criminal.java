@@ -38,7 +38,6 @@ public class Criminal extends Person {
 
      @Override
      public void displayDetails(){
-         super.displayDetails();
          System.out.println("Crime Type: "+ crimetypes);
          System.out.println("Reputation: "+reputation);
          System.out.println("Nationality: "+nationality);

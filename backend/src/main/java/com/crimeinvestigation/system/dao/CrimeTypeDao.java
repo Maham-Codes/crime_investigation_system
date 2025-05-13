@@ -59,7 +59,7 @@ public class CrimeTypeDao {
 
             System.out.println("=== Crime Types in Database ===");
 
-            while (rs.next()) {
+            /*while (rs.next()) {
                 int id = rs.getInt(1); // Get by index (first column)
                 String name = rs.getString(2); // Get by index (second column)
 
@@ -69,7 +69,7 @@ public class CrimeTypeDao {
                 crimeType.setTypeID(rs.getInt("typeID"));
                 crimeType.setCrimeName(rs.getString("crimeName"));
                 crimeTypes.add(crimeType);
-            }
+            }*/
 
 
         } catch (SQLException e) {

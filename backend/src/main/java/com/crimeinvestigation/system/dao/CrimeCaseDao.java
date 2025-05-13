@@ -30,3 +30,4 @@ public class CrimeCaseDao {
         return jdbcTemplate.queryForList(sql);
     }
 }
+

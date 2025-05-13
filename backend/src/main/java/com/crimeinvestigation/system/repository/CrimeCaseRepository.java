@@ -20,5 +20,5 @@ public interface CrimeCaseRepository extends JpaRepository<CrimeCase, Long> {
     // Find all cases with a specific case status (e.g., Open, Closed)
     List<CrimeCase> findByCaseStatus(String caseStatus);
 
-    List<CrimeCase> findByAssignedInvestigator(Investigator investigator);
+    //List<CrimeCase> findByAssignedInvestigator(Investigator investigator);
 }

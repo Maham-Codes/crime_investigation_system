@@ -1,6 +1,7 @@
 package com.crimeinvestigation.system.service;
 
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
+import com.crimeinvestigation.system.interfaces.Displayable;
 import com.crimeinvestigation.system.model.LawsAndPunishments;
 import com.crimeinvestigation.system.repository.LawsAndPunishmentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,6 @@ public class LawsAndPunishmentsService {
         // TODO: update fields here
         return lawsAndPunishmentsRepository.save(existing);
     }
+
+
 }
