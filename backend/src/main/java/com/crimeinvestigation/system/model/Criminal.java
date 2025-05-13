@@ -2,6 +2,7 @@ package com.crimeinvestigation.system.model;
 
 import com.crimeinvestigation.system.enums.CaseStatus;
 import com.crimeinvestigation.system.enums.Crimetypes;
+import com.crimeinvestigation.system.interfaces.SensitiveData;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @DiscriminatorValue("criminal")
-public class Criminal extends Person {
+public class Criminal extends Person implements SensitiveData {
     /*@ManyToMany
     @JoinTable(
             crimeName = "crime_case_criminal", // Join table that will be auto-created

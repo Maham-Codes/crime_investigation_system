@@ -1,6 +1,8 @@
 package com.crimeinvestigation.system.service;
 
+import com.crimeinvestigation.system.helper.PrivacyHelper;
 import com.crimeinvestigation.system.model.Criminal;
+import com.crimeinvestigation.system.model.User;
 import com.crimeinvestigation.system.repository.CriminalRepository;
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +54,11 @@ public class CriminalService {
     // public List<Criminal> getByCrimeType(Crimetypes type) { ... }
 
     // TODO: Add method to link/unlink criminals to/from crime cases if @ManyToMany is enabled
+
+    public Criminal getCriminalWithPrivacy(int id) {
+        Criminal criminal = getById(id); // Assume you fetch it from DB
+
+        // Use PrivacyHelper to mask if it's sensitive
+        return PrivacyHelper.processIfSensitive(criminal, PrivacyHelper.maskCriminalFields());
+    }
 }

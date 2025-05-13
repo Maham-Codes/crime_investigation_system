@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.model;
 import com.crimeinvestigation.system.enums.Crimetypes;
+import com.crimeinvestigation.system.interfaces.SensitiveData;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @DiscriminatorValue("Investigator")
-public class Investigator extends Person {
+public class Investigator extends Person implements SensitiveData {
     //@Column(name = "band")
     protected String band;
 
