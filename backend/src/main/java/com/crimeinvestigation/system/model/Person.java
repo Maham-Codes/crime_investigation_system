@@ -11,12 +11,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 
-@Table(name = "person")
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "person")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)// Use SINGLE_TABLE for Person hierarchy
 public abstract class Person implements Serializable {

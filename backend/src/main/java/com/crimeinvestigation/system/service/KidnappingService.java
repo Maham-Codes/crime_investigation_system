@@ -27,9 +27,7 @@ public class KidnappingService {
                 .orElseThrow(() -> new ResourceNotFoundException("Kidnapping not found with id: " + id));
     }
 
-    public Kidnapping save(Kidnapping obj) {
-        return kidnappingRepository.save(obj);
-    }
+
 
     public boolean delete(int id) {
         if (!kidnappingRepository.existsById(id)) {
