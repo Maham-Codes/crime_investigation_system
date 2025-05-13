@@ -36,7 +36,7 @@ public class CrimeTypeService {
 
     public CrimeType update(Long id, CrimeType updated) {
         CrimeType existing = getById(id);
-        existing.setCrimeName(updated.getCrimeName());
+        existing.setType(updated.getType());
         return crimeTypeRepository.save(existing);
     }
 

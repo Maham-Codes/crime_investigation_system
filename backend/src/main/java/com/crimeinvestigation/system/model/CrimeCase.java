@@ -42,6 +42,9 @@ public class CrimeCase {
     private Investigator investigatorID;
 
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User reportedBy;
 
 
     public void displayDetails() {}

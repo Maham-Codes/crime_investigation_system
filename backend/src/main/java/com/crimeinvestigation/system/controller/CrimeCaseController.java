@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.controller;
 
+import com.crimeinvestigation.system.dto.AmberAlertDTO;
 import com.crimeinvestigation.system.model.CrimeCase;
 import com.crimeinvestigation.system.service.CrimeCaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,12 @@ public class CrimeCaseController {
     public ResponseEntity<String> reportCrime(@RequestBody CrimeCase crimeCase) {
         caseService.reportCrime(crimeCase);
         return ResponseEntity.ok("Crime reported successfully.");
+    }
+
+    @GetMapping("/amber-alerts")
+    public ResponseEntity<List<AmberAlertDTO>> getAmberAlerts() {
+        List<AmberAlertDTO> alerts = caseService.getAmberAlerts();
+        return ResponseEntity.ok(alerts);
     }
 }
 

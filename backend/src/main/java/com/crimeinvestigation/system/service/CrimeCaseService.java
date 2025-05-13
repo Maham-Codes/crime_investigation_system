@@ -1,11 +1,13 @@
 package com.crimeinvestigation.system.service;
 
 import com.crimeinvestigation.system.dao.CrimeCaseDao;
+import com.crimeinvestigation.system.dto.AmberAlertDTO;
 import com.crimeinvestigation.system.enums.CaseStatus;
 import com.crimeinvestigation.system.enums.Crimetypes;
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import com.crimeinvestigation.system.model.CrimeCase;
 import com.crimeinvestigation.system.model.Evidence;
+import com.crimeinvestigation.system.model.User;
 import com.crimeinvestigation.system.repository.CrimeCaseRepository;
 import com.crimeinvestigation.system.repository.EvidenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import java.time.Period;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CrimeCaseService {
@@ -85,5 +88,52 @@ public class CrimeCaseService {
         evidence.setCrimeCase(crimeCase);
         evidenceRepo.save(evidence);
     }
+
+    public List<CrimeCase> getAmberAlertCases() {
+        List<CrimeCase> allCases = crimeCaseRepo.findAll();
+
+        return allCases.stream()
+                .filter(caseObj -> caseObj.getCrimeType().getType().equals(Crimetypes.KIDNAPPING))
+                .filter(caseObj -> caseObj.getCaseStatus() == CaseStatus.OPEN)
+                .filter(caseObj -> {
+                    if (caseObj.getReportedBy() == null || caseObj.getReportedBy().getDob() == null) return false;
+                    return Period.between(caseObj.getReportedBy().getDob(), LocalDate.now()).getYears() < 18;
+                })
+                .collect(Collectors.toList());
+    }
+
+    public List<AmberAlertDTO> getAmberAlerts() {
+        List<CrimeCase> allCases = crimeCaseRepo.findAll();
+
+        return allCases.stream()
+                .filter(c -> c.getReportedBy() != null)
+                .filter(c -> c.getReportedBy().getAge() < 18)
+                .filter(c -> c.getCrimeType().getType() == Crimetypes.KIDNAPPING)
+                .filter(c -> c.getCaseStatus() == CaseStatus.CURRENT || c.getCaseStatus() == CaseStatus.OPEN)
+                .map(this::mapToAmberAlertDTO)
+                .collect(Collectors.toList());
+    }
+
+    private AmberAlertDTO mapToAmberAlertDTO(CrimeCase crimeCase) {
+        User user = crimeCase.getReportedBy();
+        AmberAlertDTO dto = new AmberAlertDTO();
+
+        dto.setCaseId(crimeCase.getCaseID());
+        dto.setCrimeType(crimeCase.getCrimeType().getType().name());
+        dto.setLocation(crimeCase.getLocation());
+        dto.setDescription(crimeCase.getDescription());
+
+        String fullName = user.getFirstName() + " " +
+                (user.getMidName() != null ? user.getMidName() + " " : "") +
+                user.getLastName();
+        dto.setReportedByName(fullName.trim());
+
+        dto.setAge(user.getAge());
+        dto.setDateTime(crimeCase.getDateTime());
+        dto.setCaseStatus(crimeCase.getCaseStatus());
+
+        return dto;
+    }
+
 }
 

@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.model;
 
+import com.crimeinvestigation.system.enums.Crimetypes;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,8 +18,9 @@ public class CrimeType {
     @Column(name = "crime_type_id")
     protected Long typeID;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "crime_name")
-    protected String crimeName;
+    protected Crimetypes type;
 
 
 }
