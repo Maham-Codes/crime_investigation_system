@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.repository;
 
+import com.crimeinvestigation.system.enums.CaseStatus;
 import com.crimeinvestigation.system.model.CrimeCase;
 import com.crimeinvestigation.system.model.CrimeType;
 import com.crimeinvestigation.system.model.Investigator;
@@ -18,7 +19,8 @@ public interface CrimeCaseRepository extends JpaRepository<CrimeCase, Long> {
     List<CrimeCase> findByLocation(String location);
 
     // Find all cases with a specific case status (e.g., Open, Closed)
-    List<CrimeCase> findByCaseStatus(String caseStatus);
+    List<CrimeCase> findByCaseStatus(CaseStatus caseStatus);
 
-    //List<CrimeCase> findByAssignedInvestigator(Investigator investigator);
+    List<CrimeCase> findByInvestigatorID(Investigator investigator);
+
 }
