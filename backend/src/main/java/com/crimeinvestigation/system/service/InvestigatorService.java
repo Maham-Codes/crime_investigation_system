@@ -1,6 +1,8 @@
 package com.crimeinvestigation.system.service;
 
+import com.crimeinvestigation.system.helper.PrivacyHelper;
 import com.crimeinvestigation.system.model.Investigator;
+import com.crimeinvestigation.system.model.User;
 import com.crimeinvestigation.system.repository.InvestigatorRepository;
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +40,12 @@ public class InvestigatorService {
         Investigator existing = getById(id);
         // TODO: update fields here
         return investigatorRepository.save(existing);
+    }
+
+    public Investigator getInvestigatorWithPrivacy(int id) {
+        Investigator investigator = getById(id); // Assume you fetch it from DB
+
+        // Use PrivacyHelper to mask if it's sensitive
+        return PrivacyHelper.processIfSensitive(investigator, PrivacyHelper.maskInvestigatorFields());
     }
 }

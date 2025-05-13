@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.service;
 
+import com.crimeinvestigation.system.helper.PrivacyHelper;
 import com.crimeinvestigation.system.model.User;
 import com.crimeinvestigation.system.repository.UserRepository;
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
@@ -38,5 +39,12 @@ public class UserService {
         User existing = getById(id);
         // TODO: update fields here
         return userRepository.save(existing);
+    }
+
+    public User getUserWithPrivacy(int id) {
+        User user = getById(id); // Assume you fetch it from DB
+
+        // Use PrivacyHelper to mask if it's sensitive
+        return PrivacyHelper.processIfSensitive(user, PrivacyHelper.maskUserFields());
     }
 }

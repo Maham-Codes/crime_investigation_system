@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.model;
 
+import com.crimeinvestigation.system.interfaces.SensitiveData;
 import jakarta.persistence.Entity;
 import com.crimeinvestigation.system.enums.Role;
 import jakarta.persistence.*;
@@ -12,7 +13,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @DiscriminatorValue("User")
-public class User extends Person{
+public class User extends Person implements SensitiveData {
     //@Column(name = "address")
     protected String address;
 
