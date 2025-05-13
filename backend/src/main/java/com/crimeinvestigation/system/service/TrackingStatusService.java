@@ -1,15 +1,18 @@
 package com.crimeinvestigation.system.service;
 
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
+import com.crimeinvestigation.system.model.CrimeCase;
 import com.crimeinvestigation.system.model.TrackingStatus;
+import com.crimeinvestigation.system.repository.CrimeCaseRepository;
 import com.crimeinvestigation.system.repository.TrackingStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class TrackingServiceService {
+public class TrackingStatusService {
     @Autowired
     private TrackingStatusRepository trackingStatusRepository;
 
@@ -37,5 +40,12 @@ public class TrackingServiceService {
         TrackingStatus existing = getById(id);
         // TODO: update fields here
         return trackingStatusRepository.save(existing);
+    }
+    @Autowired
+    private CrimeCaseRepository crimeCaseRepository;
+
+    public CrimeCase getCaseById(Long caseId) {
+        Optional<CrimeCase> optionalCrimeCase = crimeCaseRepository.findById(caseId);
+        return optionalCrimeCase.orElse(null);
     }
 }
