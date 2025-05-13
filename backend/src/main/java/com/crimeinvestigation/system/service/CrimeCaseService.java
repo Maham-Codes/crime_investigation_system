@@ -29,6 +29,9 @@ public class CrimeCaseService {
     @Autowired
     private EvidenceRepository evidenceRepo;
 
+    public void reportCrime(CrimeCase crimeCase) {
+        crimeCaseRepo.save(crimeCase); // Assuming you have a JPA repository
+    }
     public List<Map<String, Object>> getClosedCases() {
         return crimeCaseDao.getClosedCases();
     }

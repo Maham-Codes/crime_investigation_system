@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.controller;
 import com.crimeinvestigation.system.model.Feedback;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import com.crimeinvestigation.system.service.FeedbackService;
@@ -43,5 +44,11 @@ public class FeedbackController {
     public String deleteFeedback(@PathVariable int id) {
         boolean deleted = feedbackService.delete(id);
         return deleted ? "Feedback deleted successfully." : "Feedback not found.";
+    }
+
+    @GetMapping("/average/{caseId}")
+    public ResponseEntity<Double> getAverage(@PathVariable Long caseId) {
+        Double avg = feedbackService.getAverageRatingForCase(caseId);
+        return ResponseEntity.ok(avg);
     }
 }
