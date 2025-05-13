@@ -4,6 +4,8 @@ import com.crimeinvestigation.system.enums.CaseStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 
 @Entity
 @Getter
@@ -22,16 +24,12 @@ public class TrackingStatus {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "update_status")
-    private CaseStatus updateStatus;
+    private CaseStatus updatedStatus;
 
-    public void displayStatus() {
-        System.out.println("Tracking ID: " + trackingID);
-        //System.out.println("Case ID: " + caseID);
-        System.out.println("Status: " + updateStatus);
+
+
+    public void updateStatus(CaseStatus newStatus) {
+        this.updatedStatus = newStatus;
     }
-    /*public void updateStatus(String newStatus, String comments) {
-        this.updateSatus = newStatus;
-        this.updateDate = LocalDate.now(); // Automatically update the date when caseStatus is changed
-    }*/
 
 }

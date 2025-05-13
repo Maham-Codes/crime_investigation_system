@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.service;
 
+import com.crimeinvestigation.system.enums.CaseStatus;
 import com.crimeinvestigation.system.exception.ResourceNotFoundException;
 import com.crimeinvestigation.system.model.CrimeCase;
 import com.crimeinvestigation.system.model.TrackingStatus;
@@ -47,5 +48,26 @@ public class TrackingStatusService {
     public CrimeCase getCaseById(Long caseId) {
         Optional<CrimeCase> optionalCrimeCase = crimeCaseRepository.findById(caseId);
         return optionalCrimeCase.orElse(null);
+    }
+
+    public boolean updateCaseStatus(Long caseId, CaseStatus newStatus) {
+        Optional<CrimeCase> crimeCaseOpt = crimeCaseRepository.findById(caseId);
+        if (crimeCaseOpt.isPresent()) {
+            CrimeCase crimeCase = crimeCaseOpt.get();
+
+            // Update the status in the CrimeCase entity
+            crimeCase.setCaseStatus(newStatus);
+            crimeCaseRepository.save(crimeCase);
+
+            // Create a new TrackingStatus entry
+            TrackingStatus trackingStatus = new TrackingStatus();
+            trackingStatus.setCaseID(crimeCase);
+            trackingStatus.setUpdatedStatus(newStatus);
+            trackingStatusRepository.save(trackingStatus);
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }
