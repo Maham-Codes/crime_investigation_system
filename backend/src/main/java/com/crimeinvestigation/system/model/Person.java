@@ -1,6 +1,7 @@
 package com.crimeinvestigation.system.model;
 import com.crimeinvestigation.system.enums.Gender;
 import com.crimeinvestigation.system.enums.Role;
+import com.crimeinvestigation.system.enums.UserType;
 import com.crimeinvestigation.system.exception.IllegalArgumentException;
 import jakarta.persistence.*;
 import lombok.*;
@@ -62,11 +63,11 @@ public abstract class Person implements Serializable {
     @Column(name = "gender")
     private Gender gender;
 
-    @Enumerated(EnumType.STRING)
+
     @Column(name = "username")
     private String username;
 
-    @Enumerated(EnumType.STRING)
+
     @Column(name = "password")
     private String password;
 
@@ -84,6 +85,9 @@ public abstract class Person implements Serializable {
             System.out.println("Error calculating age");
             return 0;
         }
+
+    }
+    public void setUserType(UserType userType) {
     }
 
     public void setCnic(String cnic) {

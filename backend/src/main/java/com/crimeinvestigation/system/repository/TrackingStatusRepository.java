@@ -1,5 +1,6 @@
 package com.crimeinvestigation.system.repository;
 
+import com.crimeinvestigation.system.enums.CaseStatus;
 import com.crimeinvestigation.system.model.CrimeCase;
 import com.crimeinvestigation.system.model.TrackingStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,6 +15,6 @@ public interface TrackingStatusRepository extends JpaRepository<TrackingStatus, 
     List<TrackingStatus> findByCaseID(CrimeCase caseID);
 
     // 🔍 Find all tracking statuses by update status
-    List<TrackingStatus> findByUpdateStatus(String updateStatus);
+    List<TrackingStatus> findByUpdatedStatus(CaseStatus updateStatus);
 }
 

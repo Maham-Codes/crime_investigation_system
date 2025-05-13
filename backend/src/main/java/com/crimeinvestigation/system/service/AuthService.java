@@ -64,7 +64,7 @@ public class AuthService {
 //        System.out.println(request.role);
 //        user.setRole(request.role);
         user.setRole(Role.user);
-       // user.setUserType(request.userType);
+        user.setUserType(request.userType);
         return userRepo.save(user);
     }
 

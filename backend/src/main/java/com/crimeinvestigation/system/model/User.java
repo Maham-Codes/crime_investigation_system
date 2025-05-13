@@ -23,9 +23,6 @@ public class User extends Person{
 
     private String password;
 
-    @Column(name = "first_name")
-    private String firstname;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Role role;
@@ -35,4 +32,6 @@ public class User extends Person{
         System.out.println("Address: " + address);
         System.out.println("Email: " + email);
     }
+
+
 }

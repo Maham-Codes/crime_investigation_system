@@ -20,4 +20,5 @@ public class UserSignupRequest {
     public String password;
     public Role role;  // VICTIM or EYEWITNESS
     public String username;
+    public UserType userType;
 }
