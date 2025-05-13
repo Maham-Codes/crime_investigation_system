@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -41,11 +43,21 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
     }
 
+//    @PostMapping("/user/login")
+//    public ResponseEntity<?> userLogin(@RequestParam String email, @RequestParam String password) {
+//        User user = authService.loginUser(email, password);
+//        if (user != null) return ResponseEntity.ok(user);
+//        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+//    }
+
     @PostMapping("/user/login")
-    public ResponseEntity<?> userLogin(@RequestParam String email, @RequestParam String password) {
+    public ResponseEntity<?> userLogin(@RequestBody Map<String, String> credentials) {
+        String email = credentials.get("email");
+        String password = credentials.get("password");
         User user = authService.loginUser(email, password);
         if (user != null) return ResponseEntity.ok(user);
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
     }
+
 }
 
