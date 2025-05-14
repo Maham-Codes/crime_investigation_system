@@ -93,8 +93,8 @@ public class CrimeCaseService {
         List<CrimeCase> allCases = crimeCaseRepo.findAll();
 
         return allCases.stream()
-                .filter(caseObj -> caseObj.getCrimeType().getType().equals(Crimetypes.KIDNAPPING))
-                .filter(caseObj -> caseObj.getCaseStatus() == CaseStatus.OPEN)
+                .filter(caseObj -> caseObj.getCrimeType().getType().equals(Crimetypes.kidnapping))
+                .filter(caseObj -> caseObj.getCaseStatus() == CaseStatus.open)
                 .filter(caseObj -> {
                     if (caseObj.getReportedBy() == null || caseObj.getReportedBy().getDob() == null) return false;
                     return Period.between(caseObj.getReportedBy().getDob(), LocalDate.now()).getYears() < 18;
@@ -108,8 +108,8 @@ public class CrimeCaseService {
         return allCases.stream()
                 .filter(c -> c.getReportedBy() != null)
                 .filter(c -> c.getReportedBy().getAge() < 18)
-                .filter(c -> c.getCrimeType().getType() == Crimetypes.KIDNAPPING)
-                .filter(c -> c.getCaseStatus() == CaseStatus.CURRENT || c.getCaseStatus() == CaseStatus.OPEN)
+                .filter(c -> c.getCrimeType().getType() == Crimetypes.kidnapping)
+                .filter(c -> c.getCaseStatus() == CaseStatus.current || c.getCaseStatus() == CaseStatus.open)
                 .map(this::mapToAmberAlertDTO)
                 .collect(Collectors.toList());
     }

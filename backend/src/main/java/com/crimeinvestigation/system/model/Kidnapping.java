@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("Kidnapping")
+@DiscriminatorValue("kidnapping")
 public class Kidnapping extends CrimeCase {
 
     //@Column(name = "relation_to_victim")

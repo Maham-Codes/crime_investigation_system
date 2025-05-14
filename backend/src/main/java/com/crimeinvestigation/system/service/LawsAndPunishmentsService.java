@@ -15,6 +15,7 @@ public class LawsAndPunishmentsService {
     @Autowired
     private LawsAndPunishmentsRepository lawsAndPunishmentsRepository;
 
+
     public List<LawsAndPunishments> getAll() {
         return lawsAndPunishmentsRepository.findAll();
     }

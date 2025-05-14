@@ -11,7 +11,7 @@ import java.time.LocalTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("Murder")
+@DiscriminatorValue("murder")
 public class Murder extends CrimeCase {
 
     //@Column(name = "time_of_death")
@@ -21,7 +21,7 @@ public class Murder extends CrimeCase {
     private String victimName;
 
     //@Column(name = "body_recovered")
-    private boolean bodyRecovered;
+    private Boolean bodyRecovered;
 
     //@Column(name = "autopsy")
     private String autopsy;

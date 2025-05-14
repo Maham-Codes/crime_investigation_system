@@ -11,7 +11,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("CyberCrime")
+@DiscriminatorValue("cybercrime")
 public class CyberCrime extends CrimeCase {
 
 

@@ -1,10 +1,11 @@
 package com.crimeinvestigation.system.enums;
 
 public enum Crimetypes {
-    MURDER,
-    THEFT,
-    CYBERCRIME,
-    KIDNAPPING,
-    HARASSMENT,
-    DRUGTRAFFICKING
+    murder,
+    theft,
+    cybercrime,
+    kidnapping,
+    harassment,
+    drugtrafficking,
+    rape
 }

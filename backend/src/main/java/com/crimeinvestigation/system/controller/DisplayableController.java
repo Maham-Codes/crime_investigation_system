@@ -37,7 +37,7 @@ public class DisplayableController {
                         "Downtown",
                         "Stolen vehicle",
                         crimeTypeObj, // must be an existing CrimeType object
-                        CaseStatus.OPEN,
+                        CaseStatus.open,
                         investigatorObj, // must be an existing Investigator object
                         investigatorObj  // assuming this is for investigatorID too
                 )*/

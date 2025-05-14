@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "crime_case")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-//@DiscriminatorColumn(crimeName = "case_type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "case_type", discriminatorType = DiscriminatorType.STRING)
 public class CrimeCase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,8 @@ public class CrimeCase {
     protected String location;
     @Column(name = "description")
     protected String description;
+    @Column(name = "cctv_presence")
+    private Boolean CCTVPresence;
 
     // Aggregation: One crime case can have multiple evidence entries
     @OneToMany(mappedBy = "crimeCase", cascade = CascadeType.ALL)

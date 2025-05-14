@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("Rape")
+@DiscriminatorValue("rape")
 public class Rape extends Harassment {
 
     @Column(name = "date_time")

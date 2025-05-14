@@ -10,7 +10,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("Harassment")
+@DiscriminatorValue("harassment")
 public class Harassment extends CrimeCase {
 
     //@Column(name = "harassment_type")
