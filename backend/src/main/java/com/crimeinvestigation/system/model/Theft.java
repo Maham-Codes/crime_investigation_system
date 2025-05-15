@@ -16,12 +16,12 @@ public class Theft extends CrimeCase {
     private String stolenItemDescription;
 
     //@Column(name = "loss_amount")
-    private double lossAmount;
+    private Double lossAmount;
 
 
 
     //@Column(name = "crowd_density")
-    private int crowdDensity;
+    private Integer crowdDensity;
 
 
     @Override

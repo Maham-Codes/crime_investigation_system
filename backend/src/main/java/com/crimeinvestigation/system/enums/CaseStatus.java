@@ -1,9 +1,9 @@
 package com.crimeinvestigation.system.enums;
 
 public enum CaseStatus {
-    pending,
+    closed,
     in_progress,
     solved,
     open,
-    current
+    unsolved
 }

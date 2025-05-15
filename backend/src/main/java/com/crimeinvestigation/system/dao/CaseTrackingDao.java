@@ -9,13 +9,13 @@ import java.sql.SQLException;
 public class CaseTrackingDao {
     public void getCasesWithAboveAverageUpdates() {
         // Show me all cases that have more updates than the average number of updates per case
-        String sql = "SELECT cc.caseID, cc.caseStatus, COUNT(ts.trackingID) AS totalUpdates " +
+        String sql = "SELECT cc.case_id, cc.case_status, COUNT(ts.tracking_id) AS totalUpdates " +
                 "FROM crime_case cc " +
-                "JOIN tracking_status ts ON cc.caseID = ts.caseID " +
-                "GROUP BY cc.caseID, cc.caseStatus " +
-                "HAVING COUNT(ts.trackingID) > ( " +
+                "JOIN tracking_status ts ON cc.case_id = ts.case_id " +
+                "GROUP BY cc.case_id, cc.case_status " +
+                "HAVING COUNT(ts.tracking_id) > ( " +
                 "  SELECT AVG(updateCount) FROM ( " +
-                "    SELECT COUNT(trackingID) AS updateCount FROM tracking_status GROUP BY caseID " +
+                "    SELECT COUNT(tracking_id) AS updateCount FROM tracking_status GROUP BY case_id " +
                 "  ) AS avgUpdates " +
                 ")";
 

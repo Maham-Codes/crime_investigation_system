@@ -15,15 +15,15 @@ public class CrimeCaseDao {
 
     public List<Map<String, Object>> getClosedCases() {
         String sql = """
-        SELECT cc.caseID, cc.case_name, cc.case_status
+        SELECT cc.case_id, cc.case_status
         FROM crime_case cc
-        JOIN tracking_status t ON t.caseID = cc.caseID
-        WHERE t.trackingID = (
-            SELECT MAX(ts.trackingID)
+        JOIN tracking_status t ON t.case_id = cc.case_id
+        WHERE t.tracking_id = (
+            SELECT MAX(ts.tracking_id)
             FROM tracking_status ts
-            WHERE ts.caseID = cc.caseID
+            WHERE ts.case_id = cc.case_id
         )
-        AND t.updateStatus LIKE '%Closed%'
+        AND t.update_status LIKE '%closed%'
         """;
 
 

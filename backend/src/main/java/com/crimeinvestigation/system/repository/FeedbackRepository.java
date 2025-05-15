@@ -11,4 +11,7 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Integer> {
     // Aggregation query example
     @Query("SELECT AVG(f.rating) FROM Feedback f WHERE f.crimeCase.caseID = :caseId")
     Double findAverageRatingForCase(@Param("caseId") Long caseId);
+
+
 }
+

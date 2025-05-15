@@ -1,5 +1,5 @@
 package com.crimeinvestigation.system.controller;
-
+import com.crimeinvestigation.system.dto.LoginRequest;
 import com.crimeinvestigation.system.dto.InvestigatorSignupRequest;
 import com.crimeinvestigation.system.dto.UserSignupRequest;
 import com.crimeinvestigation.system.model.Investigator;
@@ -30,10 +30,16 @@ public class AuthController {
         return authService.loginInvestigator(email, password);
     }
 
-    //  can you see me?????
+//    //  can you see me?????
+//    @PostMapping("/login/user")
+//    public User loginUser(@RequestParam String username, @RequestParam String password) {
+//        return authService.loginUser(username, password);
+//    }
+
+
     @PostMapping("/login/user")
-    public User loginUser(@RequestParam String username, @RequestParam String password) {
-        return authService.loginUser(username, password);
+    public User loginUser(@RequestBody LoginRequest request) {
+        return authService.loginUser(request.getUsername(), request.getPassword());
     }
 }
 

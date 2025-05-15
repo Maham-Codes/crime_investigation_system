@@ -23,7 +23,7 @@ public class Harassment extends CrimeCase {
     protected String languageUsed;
 
     //@Column(name = "threats_invovled")
-    protected boolean threatsInvolved;
+    protected Boolean threatsInvolved;
 
     //@Column(name = "relation_to_harasser")
     protected String relationToHarasser;

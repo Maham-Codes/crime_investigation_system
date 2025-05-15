@@ -78,4 +78,3 @@ public class AuthService {
         return optional.filter(user -> user.getPassword().equals(password)).orElse(null);
     }
 }
-

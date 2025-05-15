@@ -47,7 +47,7 @@ public class TrackingStatusService {
 
     public CrimeCase getCaseById(Long caseId) {
         Optional<CrimeCase> optionalCrimeCase = crimeCaseRepository.findById(caseId);
-        return optionalCrimeCase.orElse(null);
+        return optionalCrimeCase.orElseThrow(() -> new ResourceNotFoundException("CrimeCase not found with id: " + caseId));
     }
 
     public boolean updateCaseStatus(Long caseId, CaseStatus newStatus) {

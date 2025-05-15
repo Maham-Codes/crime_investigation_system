@@ -52,9 +52,26 @@ public class FeedbackService {
         return feedbackRepository.save(feedback);
     }
 
+    public CrimeCase getCaseById(Long caseId) {
+        return crimeCaseRepository.findById(caseId).orElse(null);
+    }
+
     public Feedback update(int id, Feedback updatedObj) {
         Feedback existing = getById(id);
-        // TODO: update fields here
+
+        // Update fields
+        existing.setRating(updatedObj.getRating());
+        existing.setComments(updatedObj.getComments());
+        existing.setFeedbackDate(updatedObj.getFeedbackDate());
+
+        // Optional: update user or case only if you allow editing them
+        if (updatedObj.getUser() != null) {
+            existing.setUser(updatedObj.getUser());
+        }
+        if (updatedObj.getCrimeCase() != null) {
+            existing.setCrimeCase(updatedObj.getCrimeCase());
+        }
+
         return feedbackRepository.save(existing);
     }
 

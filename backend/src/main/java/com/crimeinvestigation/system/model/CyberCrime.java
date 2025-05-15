@@ -29,10 +29,10 @@ public class CyberCrime extends CrimeCase {
     private String filesAccessed;
 
     //@Column(name = "number_of_incidents")
-    private int numberOfIncidents;
+    private Integer numberOfIncidents;
 
     //@Column(name = "amount_lost")
-    private double amountLost;
+    private Double amountLost;
 
 
     @Override
